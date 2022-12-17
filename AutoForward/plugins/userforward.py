@@ -1,6 +1,6 @@
 import logging
 logger = logging.getLogger(__name__)
-from AutoForward.config import Config
+from AutoForward import MAINCHANNEL_ID
 import asyncio
 from pyrogram import Client, filters
 
@@ -9,7 +9,7 @@ from pyrogram import Client, filters
 async def forward(client, message):
     # Forwarding the messages to the channel
    try:
-      for id in Config.CHANNEL:
+      for id in MAINCHANNEL_ID:
          from_channel, to_channel = id.split(":")
          if message.chat.id == int(from_channel):
 #           func = message.copy if False else message.forward
