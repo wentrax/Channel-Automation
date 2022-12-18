@@ -23,7 +23,7 @@ async def editing(bot, message):
              file_caption = f"`{filename}`"  
               
       try:          
-             await bot.edit_message_caption(
+             await bot.Bot.edit_message_caption(
                  chat_id=message.chat.id, 
                  message_id=message.id,
                  caption=file_caption + "\n" + "@HQFilms4U",
