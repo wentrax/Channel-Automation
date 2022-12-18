@@ -1,7 +1,7 @@
 from pyrogram import Client, enums, __version__
 from AutoForward import API_HASH, APP_ID, LOGGER, \
     USER_SESSION
-# from AutoForward.UserClients import User2nd
+from AutoForward.UserClients import User2nd
 
 class User(Client):
     USER2ND: User2nd = None
