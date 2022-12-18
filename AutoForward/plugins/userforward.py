@@ -2,7 +2,6 @@ import logging, asyncio
 logger = logging.getLogger(__name__)
 from AutoForward import MAINCHANNEL_ID
 from pyrogram import Client, filters, enums
-from AutoForward.client import User
 from pyrogram.errors import FloodWait
 
 CHANNEL_ID = 1001743048821
