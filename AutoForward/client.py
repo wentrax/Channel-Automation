@@ -5,7 +5,7 @@ from AutoForward.bot import Lxbot
 
 class User(Client):
     LXBOT: Lxbot = None
-    LXBOT_ID: int = None
+    LXBOT_ID = 5300015911
 
     def __init__(self):
         super().__init__(            
