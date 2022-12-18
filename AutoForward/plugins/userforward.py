@@ -1,20 +1,20 @@
-import logging
+import logging, asyncio
 logger = logging.getLogger(__name__)
 from AutoForward import MAINCHANNEL_ID
-import asyncio
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums
 
 
-@Client.on_message(filters.channel)
-async def forward(client, message):
-    # Forwarding the messages to the channel
-   try:
-      for id in MAINCHANNEL_ID:
-         from_channel, to_channel = id.split(":")
-         if message.chat.id == int(from_channel):
-#           func = message.copy if False else message.forward
-            await message.copy(int(to_channel))
-            print("Forwarded a message from", from_channel, "to", to_channel)
-            await asyncio.sleep(1)
-   except Exception as e:
-      logger.exception(e)
+CHANNEL_ID = 1001743048821
+
+@Client.on_message(filters.media)
+async def forward(bot, update):
+    try:      
+        await bot.copy_message(
+            chat_id=-1001743048821,
+            from_chat_id=update.chat.id,
+            message_id=update.id,
+            caption=update.caption + "@Lx0980",
+            parse_mode=enums.ParseMode.MARKDOWN
+        )
+    except FloodWait as e:
+        await asyncio.sleep(e.value)
