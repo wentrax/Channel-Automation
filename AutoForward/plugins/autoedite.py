@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 media_filter = filters.document | filters.video | filters.audio
 
 @Client.on_message(filters.chat(-1001743048821) & media_filter)
-async def editing(bot, message):
+async def editing(client, message):
       try:
          media = message.document or message.video or message.audio
          caption_text = "@HQFilms4u"
@@ -23,7 +23,7 @@ async def editing(bot, message):
              file_caption = f"`{filename}`"  
               
       try:          
-             await bot.LXBOT.edit_message_caption(
+             await client.User2nd.edit_message_caption(
                  chat_id=message.chat.id, 
                  message_id=message.id,
                  caption=file_caption + "\n" + "@HQFilms4U",
