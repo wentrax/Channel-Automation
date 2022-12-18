@@ -21,7 +21,7 @@ class User(Client):
         self.LOGGER = LOGGER
 
     async def start(self):
-        await super().start()
+        await self.session.start()
         try: await self.export_session_string()
         except: pass
         usr_bot_me = await self.get_me()
