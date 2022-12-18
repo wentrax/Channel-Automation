@@ -1,6 +1,6 @@
 
-from AutoForward.bot import Bot
+from AutoForward.client import User
 
-print("Bot started!")
+print("User started!")
 app = Bot()
 app.run()
