@@ -9,12 +9,11 @@ class User(Client):
 
     def __init__(self):
         super().__init__(
-            "User1",
+            "userbot",
             api_hash=API_HASH,
             api_id=APP_ID,
             session_string=USER_SESSION,
-            workers=200,            
-            sleep_threshold=10,
+            workers=20,
             plugins={
                 "root": "AutoForward/plugins"
             }
@@ -23,11 +22,10 @@ class User(Client):
 
     async def start(self):
         await super().start()
-        user_details = await self.get_me()
-        self.set_parse_mode(enums.ParseMode.HTML)
-        self.LOGGER(__name__).info(
-            f"@{user_details.username}  started! "
-        )
+        try: await self.export_session_string()
+        except: pass
+        usr_bot_me = await self.get_me()
+        return (self, usr_bot_me.id)
         self.USER2ND, self.USER2ND_ID = await User2nd().start()
 
     async def stop(self, *args):
