@@ -2,5 +2,5 @@
 from AutoForward.client import User
 
 print("User started!")
-app = Bot()
+app = User()
 app.run()
