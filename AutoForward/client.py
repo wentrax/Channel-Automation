@@ -11,8 +11,13 @@ class User(Client):
             api_hash=API_HASH,
             api_id=APP_ID,
             session_string=USER_SESSION,
-            workers=20
+            workers=200,
+            sleep_threshold=10,
+            plugins={
+                "root": "AutoForward/plugins"
+            }
         )
+
         self.LOGGER = LOGGER
 
     async def start(self):
