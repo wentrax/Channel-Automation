@@ -1,4 +1,4 @@
-from program import Clinet, filters
+from pyrogram import Clinet, filters
 
 @Clinet.on_message(filters.command("start") & filters.private)
 async def start(bot, cmd):
