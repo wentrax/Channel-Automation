@@ -1,4 +1,4 @@
-from pyrogram import Client, __version__
+from pyrogram import Client, enums, __version__
 from AutoForward import API_HASH, APP_ID, LOGGER, \
     USER_SESSION
 from AutoForward.bot import Lxbot
