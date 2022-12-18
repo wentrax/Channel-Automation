@@ -1,5 +1,5 @@
 
-from .bot import Bot
+from AutoForward.bot import Bot
 
 print("Bot started!")
 app = Bot()
