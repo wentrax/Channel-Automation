@@ -16,17 +16,17 @@ class Bot(Client):
             workers=200,            
             sleep_threshold=10,
             plugins={
-                "root": "bot/plugins"
+                "root": "AutoForward/plugins"
             }
         )
         self.LOGGER = LOGGER
 
     async def start(self):
         await super().start()
-        bot_details = await self.get_me()
+        user_details = await self.get_me()
         self.set_parse_mode(enums.ParseMode.HTML)
         self.LOGGER(__name__).info(
-            f"@{bot_details.username}  started! "
+            f"@{user_details.username}  started! "
         )
 #        self.USER, self.USER_ID = await User().start()
 
