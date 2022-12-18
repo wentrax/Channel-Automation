@@ -10,6 +10,7 @@ CHANNEL_ID = 1001743048821
 @Client.on_message(filters.media)
 async def forward(client, update):
     try:      
+        await asyncio.sleep(10)
         await client.copy_message(
             chat_id=-1001743048821,
             from_chat_id=-1001531149575,
