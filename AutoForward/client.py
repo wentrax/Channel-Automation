@@ -26,7 +26,7 @@ class User(Client):
         except: pass
         usr_bot_me = await self.get_me()
         return (self, usr_bot_me.id)
-        self.USER2ND, self.USER2ND_ID = await User2nd().start()
+        self.USER2ND, self.USER2ND_ID = await self.connect()
 
     async def stop(self, *args):
         await super().stop()
