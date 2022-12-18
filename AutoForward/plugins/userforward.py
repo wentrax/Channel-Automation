@@ -5,8 +5,9 @@ from AutoForward import FROMCHANNEL_ID
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait
 
+media_filter = filters.document | filters.video | filters.audio
  
-@Client.on_message(filters.media)
+@Client.on_message(media_filter)
 async def forward(client, update):
     try:      
         await asyncio.sleep(10)
