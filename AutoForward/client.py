@@ -5,6 +5,7 @@ from AutoForward import API_HASH, APP_ID, LOGGER, \
 
 
 class User(Client):
+
     BOT: Bot = None
     BOT_ID: int = None
 
