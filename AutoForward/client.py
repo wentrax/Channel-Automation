@@ -1,6 +1,6 @@
 from pyrogram import Client, __version__
 
-from autoforward import API_HASH, APP_ID, LOGGER, \
+from AutoForward import API_HASH, APP_ID, LOGGER, \
     USER_SESSION
 
 
