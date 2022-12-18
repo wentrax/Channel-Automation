@@ -5,8 +5,6 @@ from AutoForward import API_HASH, APP_ID, LOGGER, BOT_TOKEN
 from AutoForward.client import User
 
 class Bot(Client):
-    USER: User = None
-    USER_ID: int = None
 
     def __init__(self):
         super().__init__(
@@ -29,8 +27,7 @@ class Bot(Client):
         self.LOGGER(__name__).info(
             f"@{bot_details.username}  started! "
         )
-        self.USER, self.USER_ID = await User().start()
-
+        
     async def stop(self, *args):
         await super().stop()
         self.LOGGER(__name__).info("Bot stopped. Bye.")
