@@ -7,8 +7,9 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 
 caption_text = CAPTION_TEXT
+media_filter = filters.document | filters.video | filters.audio
 
-@Client.on_message(filters.channel & (media_filter))
+@Client.on_message(filters.chat(-1001427335527, -1001743048821) & (media_filter))
 async def editing(bot, message):
       try:
          media = message.document or message.video or message.audio
