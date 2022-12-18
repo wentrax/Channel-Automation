@@ -2,8 +2,6 @@ from pyrogram import Client, enums, __version__
 
 from AutoForward import API_HASH, APP_ID, LOGGER, BOT_TOKEN 
 
-from AutoForward.client import User
-
 class Bot(Client):
 
     def __init__(self):
