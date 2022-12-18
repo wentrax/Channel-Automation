@@ -4,7 +4,7 @@ from AutoForward import API_HASH, APP_ID, LOGGER, \
 from AutoForward.bot import Lxbot
 
 class User(Client):
-    LXBOT: Lxbot = None
+    LXBOT: Lxbot = "FlashV2Robot"
     LXBOT_ID = 5300015911
 
     def __init__(self):
@@ -28,7 +28,7 @@ class User(Client):
         self.LOGGER(__name__).info(
             f"@{user_details.username}  started! "
         )
-        self.LXBOT, LXBOT_ID = await Lxbot().start()
+        LXBOT, LXBOT_ID = await Lxbot().start()
 
     async def stop(self, *args):
         await super().stop()
