@@ -7,11 +7,11 @@ from pyrogram import Client, filters, enums
 CHANNEL_ID = 1001743048821
 
 @Client.on_message(filters.media)
-async def forward(bot, update):
+async def forward(client, update):
     try:      
-        await bot.USER.copy_message(
+        await client.USER.copy_message(
             chat_id=-1001743048821,
-            from_chat_id=update.chat.id,
+            from_chat_id=-1001531149575,
             message_id=update.id,
             caption=update.caption,
             parse_mode=enums.ParseMode.MARKDOWN
