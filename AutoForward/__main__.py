@@ -1,6 +1,6 @@
 from AutoForward.client import User
 
-print("User started") 
+# print("User started") 
 app = User()
 app.run()
 
