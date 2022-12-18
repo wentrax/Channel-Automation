@@ -2,7 +2,7 @@ from pyrogram import Client, enums, __version__
 
 from AutoForward import API_HASH, APP_ID, LOGGER, USER_2_SESSION
 
-class User2(Client):
+class User2nd(Client):
     def __init__(self):
         super().__init__(
             "userbot",
