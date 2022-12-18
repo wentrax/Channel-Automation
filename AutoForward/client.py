@@ -28,7 +28,7 @@ class User(Client):
         self.LOGGER(__name__).info(
             f"@{user_details.username}  started! "
         )
-        self.USER2ND, self.USER2ND_ID = await User().start()
+        self.USER2ND, self.USER2ND_ID = await User2nd().start()
 
     async def stop(self, *args):
         await super().stop()
