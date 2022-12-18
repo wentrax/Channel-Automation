@@ -1,7 +1,7 @@
 from pyrogram import Client, __version__
 from AutoForward import API_HASH, APP_ID, LOGGER, \
     USER_SESSION
-from AutoForward.bot import LXBOT
+from AutoForward.bot import Lxbot
 
 class User(Client):
     LXBOT: Lxbot = None
