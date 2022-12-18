@@ -1,10 +1,13 @@
 from pyrogram import Client, __version__
-
+from AutoForward.bot import Bot
 from AutoForward import API_HASH, APP_ID, LOGGER, \
     USER_SESSION
 
 
 class User(Client):
+    BOT: Bot = None
+    BOT_ID: int = None
+
     def __init__(self):
         super().__init__(
             "userbot",
@@ -26,6 +29,7 @@ class User(Client):
         except: pass
         usr_bot_me = await self.get_me()
         return (self, usr_bot_me.id)
+        self.BOT, self.BOT_ID = await Bot().start()
 
     async def stop(self, *args):
         await super().stop()
