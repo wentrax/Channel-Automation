@@ -2,11 +2,9 @@ from pyrogram import Client, __version__
 from AutoForward.bot import Bot
 from AutoForward import API_HASH, APP_ID, LOGGER, \
     USER_SESSION
-
-
 from AutoForward.bot import LXBOT
 
-class Bot(Client):
+class User(Client):
     LXBOT: Lxbot = None
     LXBOT_ID: int = None
 
@@ -20,6 +18,7 @@ class Bot(Client):
             sleep_threshold=10,
             plugins={
                 "root": "AutoForward/plugins"
+            }
         )
         self.LOGGER = LOGGER
 
