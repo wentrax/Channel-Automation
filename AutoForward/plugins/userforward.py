@@ -10,7 +10,7 @@ media_filter = filters.document | filters.video | filters.audio
 @Client.on_message(media_filter)
 async def forward(client, update):
     try:      
-        await asyncio.sleep(10)
+        await asyncio.sleep(600)
         await client.copy_message(
             chat_id=-1001688669689,
             from_chat_id=FROMCHANNEL_ID,
