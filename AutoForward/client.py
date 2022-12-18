@@ -3,7 +3,7 @@ from AutoForward import API_HASH, APP_ID, LOGGER, \
     USER_SESSION
 # from AutoForward.bot import Lxbot
 
-class Bot(Client):
+class User(Client):
 #    USER: User = None
 #    USER_ID: int = None
 
