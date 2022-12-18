@@ -1,11 +1,11 @@
 from pyrogram import Client, enums, __version__
 from AutoForward import API_HASH, APP_ID, LOGGER, \
     USER_SESSION
-# from AutoForward.bot import Lxbot
+# from AutoForward.UserClients import User2nd
 
 class User(Client):
-#    USER: User = None
-#    USER_ID: int = None
+    USER2ND: User2nd = None
+    USER2ND_ID: int = None
 
     def __init__(self):
         super().__init__(
@@ -28,7 +28,7 @@ class User(Client):
         self.LOGGER(__name__).info(
             f"@{user_details.username}  started! "
         )
-#        self.USER, self.USER_ID = await User().start()
+        self.USER2ND, self.USER2ND_ID = await User().start()
 
     async def stop(self, *args):
         await super().stop()
