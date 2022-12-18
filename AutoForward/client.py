@@ -4,33 +4,33 @@ from AutoForward import API_HASH, APP_ID, LOGGER, \
     USER_SESSION
 
 
-class User(Client):
+from AutoForward.bot import LXBOT
 
-    BOT: Bot = None
-    BOT_ID: int = None
+class Bot(Client):
+    LXBOT: Lxbot = None
+    LXBOT_ID: int = None
 
     def __init__(self):
-        super().__init__(
-            "userbot",
+        super().__init__(            
+            name='user_session',
+            session_string=USER_SESSION,
             api_hash=API_HASH,
             api_id=APP_ID,
-            session_string=USER_SESSION,
-            workers=200,
+            workers=200,            
             sleep_threshold=10,
             plugins={
                 "root": "AutoForward/plugins"
-            }
         )
-
         self.LOGGER = LOGGER
 
     async def start(self):
         await super().start()
-        try: await self.export_session_string()
-        except: pass
-        usr_bot_me = await self.get_me()
-        return (self, usr_bot_me.id)
-        self.BOT, self.BOT_ID = await Bot().start()
+        user_details = await self.get_me()
+        self.set_parse_mode(enums.ParseMode.HTML)
+        self.LOGGER(__name__).info(
+            f"@{user_details.username}  started! "
+        )
+        self.LXBOT, self.LXBOT_ID = await Lxbot().start()
 
     async def stop(self, *args):
         await super().stop()
