@@ -1,2 +1,2 @@
-Pyrogram
+pyrogram~=2.0.70
 TgCrypto
