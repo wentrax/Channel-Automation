@@ -1,4 +1,4 @@
-from Automation.bot import Robot
+from .bot import Robot
 
 # print("User started") 
 app = Robot()
