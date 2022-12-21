@@ -1,7 +1,6 @@
 from pyrogram import filters, enums
 from .importss import Config, Translation, Robot
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from .database import *
 
 @Robot.on_callback_query()
 async def button(bot, cmd: CallbackQuery):
