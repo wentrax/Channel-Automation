@@ -17,7 +17,7 @@ caption_position = usercaption_position.lower()
 async def editing(bot, message):
       caption_text = await get_caption(Config.ADMIN_ID)
       try:
-         caption_text = caption_text.caption
+         caption_text = "@HQFilms4U"
       except:
          caption_text = ""
          pass 
