@@ -1,6 +1,24 @@
+import os, sys, asyncio
 from pyrogram import filters, enums
 from bot.importss import Config, Translation, Robot
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+
+@Robot.on_callback_query(filters.regex(r'^stop_btn$'))
+async def stop_button(c: Client, cb: CallbackQuery):
+    await cb.message.delete()
+    await cb.answer()
+    msg = await c.send_message(
+        text="<i>Trying To Stoping.....</i>",
+        chat_id=cb.message.chat.id
+    )
+    await asyncio.sleep(5)
+    await msg.edit("<i>File Forword Stoped Successfully 👍</i>")
+    os.execl(sys.executable, sys.executable, *sys.argv)
+    
+@Robot.on_callback_query(filters.regex(r'^close_btn$'))
+async def close(bot, update):
+    await update.answer()
+    await update.message.delete()
 
 @Robot.on_callback_query()
 async def button(bot, update: CallbackQuery):
@@ -76,7 +94,7 @@ async def button(bot, update: CallbackQuery):
 
 
 
-@Client.on_callback_query()
+@Robot.on_callback_query()
 async def cb_handler(client: Bot, query: CallbackQuery):
     if query.message.reply_to_message.from_user.id == query.from_user.id:
 
