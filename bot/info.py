@@ -9,3 +9,5 @@ DB_URL = "mongodb+srv://Channel-Automation-Robot:seCWS0GPZS4WIveQ@cluster0.r8flw
 FROM_CHANNEL = "@bdbdhdhvh" 
       
 TO_CHANNEL = -1001531149575
+
+FILES_CAPTION = "HQFilms4U"
