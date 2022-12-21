@@ -1,1 +1,1 @@
-from .db import *
+from bot.database.db import *
