@@ -5,8 +5,7 @@ logger = logging.getLogger(__name__)
 
 import pyrogram
 from pyrogram import filters
-from bot import autocaption
-from config import Config
+from Automation.bot import Robot
 from database.database import *
 from translation import Translation
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
@@ -58,7 +57,7 @@ about_button=InlineKeyboardMarkup(
 ) 
 
 
-@autocaption.on_message(filters.command("start") & filters.private)
+@Robot.on_message(filters.command("start") & filters.private)
 async def start(bot, cmd):
       await bot.send_message(
           chat_id = cmd.chat.id,
@@ -70,7 +69,7 @@ async def start(bot, cmd):
       )
 
 
-@autocaption.on_message(filters.command("help") & filters.private)
+@Robot.on_message(filters.command("help") & filters.private)
 async def help(bot, cmd):
       await bot.send_message(
           chat_id = cmd.chat.id,
@@ -82,7 +81,7 @@ async def help(bot, cmd):
       )
 
 
-@autocaption.on_message(filters.command("about") & filters.private)
+@Robot.on_message(filters.command("about") & filters.private)
 async def about(bot, cmd):
       await bot.send_message(
           chat_id = cmd.chat.id,
@@ -94,7 +93,7 @@ async def about(bot, cmd):
       )   
 
 
-@autocaption.on_message(filters.command("set_caption") & filters.private)
+@Robot.on_message(filters.command("set_caption") & filters.private)
 async def set_caption(bot, cmd):
     if Config.ADMIN_ID != cmd.from_user.id:
         return
