@@ -1,6 +1,6 @@
-from AutoForward.client import User
+from Automation.bot import automation
 
 # print("User started") 
-app = User()
+app = automation()
 app.run()
 
