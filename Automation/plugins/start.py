@@ -4,7 +4,7 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 
 import pyrogram
-from pyrogram import filters
+from pyrogram import filters, enums
 from Automation.bot import Robot
 from database.database import *
 from translation import Translation
@@ -62,8 +62,8 @@ async def start(bot, cmd):
       await bot.send_message(
           chat_id = cmd.chat.id,
           text = Translation.START_TEXT.format(cmd.from_user.first_name, Config.ADMIN_USERNAME), 
-          reply_to_message_id = cmd.message_id,
-          parse_mode = "markdown",
+          reply_to_message_id = cmd.message.id,
+          parse_mode = enums.ParseMode.MARKDOWN,
           disable_web_page_preview = True, 
           reply_markup = start_button
       )
@@ -74,8 +74,8 @@ async def help(bot, cmd):
       await bot.send_message(
           chat_id = cmd.chat.id,
           text = Translation.HELP_TEXT, 
-          reply_to_message_id = cmd.message_id,
-          parse_mode = "html",
+          reply_to_message_id = cmd.message.id,
+          parse_mode = enums.ParseMode.HTML,
           disable_web_page_preview = True,
           reply_markup = help_button           
       )
@@ -86,8 +86,8 @@ async def about(bot, cmd):
       await bot.send_message(
           chat_id = cmd.chat.id,
           text = Translation.ABOUT_TEXT, 
-          reply_to_message_id = cmd.message_id,
-          parse_mode = "markdown",
+          reply_to_message_id = cmd.message.id,
+          parse_mode = enums.ParseMode.MARKDOWN,
           disable_web_page_preview = True, 
           reply_markup = about_button
       )   
