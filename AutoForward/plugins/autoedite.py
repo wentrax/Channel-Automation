@@ -1,19 +1,25 @@
-# @Lx_0988
 import logging
-from AutoForward import CAPTION_TEXT
-from pyrogram import Client, filters, enums
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-caption_text = CAPTION_TEXT
-media_filter = filters.document | filters.video | filters.audio
+import asyncio
+from pyrogram import filters
+from bot import autocaption
+from config import Config
+from database.database import *
 
-@Client.on_message(filters.chat([-1001743048821, -1001427335527]) & media_filter)
+
+# =
+usercaption_position = Config.CAPTION_POSITION
+caption_position = usercaption_position.lower()
+
+
+@autocaption.on_message(filters.channel & (filters.document | filters.video | filters.audio ) & ~filters.edited, group=-1)
 async def editing(bot, message):
+      caption_text = await get_caption(Config.ADMIN_ID)
       try:
-         media = message.document or message.video or message.audio
-         caption_text = CAPTION_TEXT
+         caption_text = caption_text.caption
       except:
          caption_text = ""
          pass 
@@ -21,16 +27,29 @@ async def editing(bot, message):
           if message.caption:                        
              file_caption = f"**{message.caption}**"                
           else:
-             fname = media.file_name
-             filename = fname.replace("_", ".")
-             file_caption = f"`{filename}`"  
-              
-      try:                       await bot.edit_message_caption(
-                 chat_id=message.chat.id, 
-                 message_id=message.id,
-                 caption=file_caption.replace("Latest_Movies_Reborn", "DXClassic"),
+             file_caption = ""           
+                                                 
+      try:
+          if caption_position == "top":
+             await bot.edit_message_caption(
+                 chat_id = message.chat.id, 
+                 message_id = message.message_id,
+                 caption = caption_text + "\n" + file_caption,
                  parse_mode=enums.ParseMode.MARKDOWN
              )
-
+          elif caption_position == "bottom":
+             await bot.edit_message_caption(
+                 chat_id = message.chat.id, 
+                 message_id = message.message_id,
+                 caption = file_caption + "\n" + caption_text,
+                 parse_mode=enums.ParseMode.MARKDOWN
+             )
+          elif caption_position == "nil":
+             await bot.edit_message_caption(
+                 chat_id = message.chat.id,
+                 message_id = message.message_id,
+                 caption = caption_text, 
+                 parse_mode=enums.ParseMode.MARKDOWN
+             ) 
       except:
           pass
