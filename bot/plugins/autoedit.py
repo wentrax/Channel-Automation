@@ -4,8 +4,8 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 
 from pyrogram import filters, enums
-from .importss import Robot, Config
-from .database import *
+from bot.importss import Robot, Config
+from bot.database import *
 
 
 # =
