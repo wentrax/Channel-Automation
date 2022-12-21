@@ -1,4 +1,4 @@
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="UPDATE CHANNEL", url=f"https://t.me/Lx_0980")]])
@@ -7,7 +7,7 @@ BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="UPDATE CHANNEL", url
 
 @Client.on_message(filters.private & filters.command("id"))
 async def id(bot, update):
-    await message.reply_text("<b>🆔 Your Telegram ID :</b> <code>{update.from_user.id}</code>")
+    await bot.reply_text("<b>🆔 Your Telegram ID :</b> <code>{update.from_user.id}</code>")
 
 @Client.on_message(filters.private & filters.command("info"))
 async def info(bot, update):    
@@ -33,7 +33,7 @@ async def forwarded(_, msg):
             text += "<b>User</b>"
         text += f'\n{msg.forward_from.first_name} \n'
         if msg.forward_from.username:
-            text += f'@{msg.forward_from.username} \nID : `{msg.forward_from.id}`'
+            text += f"@{msg.forward_from.username} \nID : <code>{msg.forward_from.id}</code>"
         else:
             text += f'ID : <code>{msg.forward_from.id}</code>'
         await msg.reply(text, quote=True)
@@ -46,9 +46,9 @@ async def forwarded(_, msg):
             )
         else:
             text = f"Forward Detected. \n\n"
-            if msg.forward_from_chat.type == "channel":
+            if msg.forward_from_chat.type == enums.ChatType.CHANNEL:
                 text += "<b>Channel</b>"
-            if msg.forward_from_chat.type == "supergroup":
+            if msg.forward_from_chat.type == enums.ChatType.SUPERGROUP:
                 text += "<b>Group</b>"
             text += f'\n{msg.forward_from_chat.title} \n'
             if msg.forward_from_chat.username:
