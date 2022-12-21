@@ -6,7 +6,6 @@ from bot.importss import Config, Translation
 
 FROM = Config.FROM_CHANNEL
 TO = Config.TO_CHANNEL
-FILTER = Config.FILTER_TYPE
 
 document = enums.MessagesFilter.DOCUMENT 
 
