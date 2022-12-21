@@ -35,6 +35,3 @@ async def start(bot, update):
 
 
 
-@
-
-
