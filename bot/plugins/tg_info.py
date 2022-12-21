@@ -7,7 +7,7 @@ BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="UPDATE CHANNEL", url
 
 @Client.on_message(filters.private & filters.command("id"))
 async def ids(bot, update):
-     id_text=f"<b>🆔 Your Telegram ID :</b> <code>{update.from_user.id}</code>"   
+    id_text=f"<b>🆔 Your Telegram ID :</b> <code>{update.from_user.id}</code>"   
     await update.reply_text(id_text)       
         
 
