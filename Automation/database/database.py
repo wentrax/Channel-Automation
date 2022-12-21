@@ -10,11 +10,11 @@ import asyncio
 from sqlalchemy import Column, Integer, Boolean, String, ForeignKey, UniqueConstraint, func
 
 
-from Automation import DB_URL
+from Automation import Config
 
 
 def start() -> scoped_session:
-    engine = create_engine(DB_URL, client_encoding="utf8")
+    engine = create_engine(Config.DB_URL, client_encoding="utf8")
     BASE.metadata.bind = engine
     BASE.metadata.create_all(engine)
     return scoped_session(sessionmaker(bind=engine, autoflush=False))
