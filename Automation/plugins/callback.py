@@ -1,18 +1,11 @@
 from pyrogram import filters
-from bot import autocaption
+from Automation.bot import Robot
 from Automation.info import Config
-from database.database import *
 from Automation.translation import Translation
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
  
 
-
-# call_backs 
-
-
-automation
-
-@automation.on_callback_query()
+@Robot.on_callback_query()
 async def button(bot, cmd: CallbackQuery):
     cb_data = cmd.data
     if "about_data" in cb_data:
