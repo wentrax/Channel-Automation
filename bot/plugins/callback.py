@@ -3,6 +3,7 @@ from pyrogram import filters, enums
 from bot.importss import Config, Translation, Robot
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
+
 @Robot.on_callback_query(filters.regex(r'^stop_btn$'))
 async def stop_button(c: Client, cb: CallbackQuery):
     await cb.message.delete()
