@@ -1,9 +1,12 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton(text="UPDATE CHANNEL", url=f"https://t.me/Lx_0980")]])
+
+
 
 @Client.on_message(filters.private & filters.command("id"))
-async def info(bot, update):
+async def id(bot, update):
     await message.reply_text("<b>🆔 Your Telegram ID :</b> <code>{update.from_user.id}</code>")
 
 @Client.on_message(filters.private & filters.command("info"))
