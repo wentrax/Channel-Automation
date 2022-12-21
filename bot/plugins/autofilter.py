@@ -18,7 +18,7 @@ document = enums.MessagesFilter.DOCUMENT
 BUTTONS = {}
  
 @Client.on_message(filters.group & filters.text)
-async def filter(client: Bot, message: Message):
+async def filter(client: Robot, message: Message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
 
