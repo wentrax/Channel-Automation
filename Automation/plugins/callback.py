@@ -1,6 +1,6 @@
 from pyrogram import filters
 from bot import autocaption
-from Automation import Config
+from Automation.info import Config
 from database.database import *
 from Automation.translation import Translation
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
