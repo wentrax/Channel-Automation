@@ -1,9 +1,9 @@
-from pyrogram import filters
+from pyrogram import filters, enums
 from Automation.bot import Robot
 from Automation.info import Config
 from Automation.translation import Translation
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
- 
+
 
 @Robot.on_callback_query()
 async def button(bot, cmd: CallbackQuery):
@@ -11,7 +11,7 @@ async def button(bot, cmd: CallbackQuery):
     if "about_data" in cb_data:
         await cmd.message.edit(
              text = Translation.ABOUT_TEXT,
-             parse_mode="markdown", 
+             parse_mode = enums.ParseMode.MARKDOWN, 
              disable_web_page_preview=True, 
              reply_markup=InlineKeyboardMarkup(
                  [
@@ -26,7 +26,7 @@ async def button(bot, cmd: CallbackQuery):
     elif "help_data" in cb_data:
           await cmd.message.edit(
                text=Translation.HELP_TEXT,
-               parse_mode="html", 
+               parse_mode = enums.ParseMode.HTML, 
                disable_web_page_preview=True, 
                reply_markup=InlineKeyboardMarkup(
                    [
@@ -44,7 +44,7 @@ async def button(bot, cmd: CallbackQuery):
     elif "back_data" in cb_data:
           await cmd.message.edit(
                text=Translation.START_TEXT.format(cmd.from_user.first_name, Config.ADMIN_USERNAME),
-               parse_mode="markdown", 
+               parse_mode = enums.ParseMode.MARKDOWN, 
                disable_web_page_preview=True, 
                reply_markup=InlineKeyboardMarkup(
                    [
@@ -70,7 +70,7 @@ async def button(bot, cmd: CallbackQuery):
     elif "markdown_data" in cb_data:
           await cmd.message.edit(
                text=Translation.MARKDOWN_TEXT,
-               parse_mode="html", 
+               parse_mode = enums.ParseMode.HTML, 
                disable_web_page_preview=True, 
                reply_markup=InlineKeyboardMarkup(
                    [
@@ -91,7 +91,7 @@ async def button(bot, cmd: CallbackQuery):
                 caption_text = "Not Added" 
              await cmd.message.edit(
                   text=Translation.STATUS_DATA.format(caption_text, Config.CAPTION_POSITION),
-                  parse_mode="html", 
+                  parse_mode = enums.ParseMode.HTML, 
                   disable_web_page_preview=True, 
                   reply_markup=InlineKeyboardMarkup(
                       [
@@ -106,7 +106,7 @@ async def button(bot, cmd: CallbackQuery):
           else:
              await cmd.message.edit(
                   text=Translation.NOT_ADMIN_TEXT,
-                  parse_mode="html", 
+                  parse_mode = enums.ParseMode.HTML, 
                   disable_web_page_preview=True, 
                   reply_markup=InlineKeyboardMarkup(
                       [
