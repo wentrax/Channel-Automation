@@ -1,4 +1,3 @@
-
 from pyrogram import filters, enums
 from bot.importss import Config, Translation, Robot
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
@@ -29,8 +28,10 @@ async def button(bot, update: CallbackQuery):
                reply_markup=InlineKeyboardMarkup(
                    [
                        [
+                        InlineKeyboardButton("Copy Files", callback_data="copy_files_data"),                       
+                        ],[
                         InlineKeyboardButton("⬇️ BACK", callback_data="home_data"),
-                        InlineKeyboardButton("🔐 CLOSE", callback_data="close_data")
+                        InlineKeyboardButton("🔐 CLOSE", callback_data="close_data")                        
                        ]
  
                    ] 
@@ -49,6 +50,21 @@ async def button(bot, update: CallbackQuery):
                         InlineKeyboardButton("📕 ABOUT ME", callback_data="about_data")
                        ],[                       
                         InlineKeyboardButton("💡 HELP", callback_data="commands_data")
+                       ]
+                   ]
+               )
+          )
+    elif "copy_files_data" in cb_data:
+          await update.message.edit(
+               text=Translation.COPY_FILES_TEXT,
+               parse_mode = enums.ParseMode.MARKDOWN, 
+               disable_web_page_preview=True, 
+               reply_markup=InlineKeyboardMarkup(
+                   [
+                      
+                       [
+                        InlineKeyboardButton("⬇️ BACK", callback_data="commands_data"),
+                        InlineKeyboardButton("🔐 CLOSE", callback_data="close_data")
                        ]
                    ]
                )
