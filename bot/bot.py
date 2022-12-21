@@ -1,5 +1,5 @@
 from pyrogram import Client, enums, __version__
-from Automation import API_HASH, APP_ID, LOGGER, BOT_TOKEN 
+from . import API_HASH, APP_ID, LOGGER, BOT_TOKEN 
 # from Automation.user import User
 
 class Robot(Client):
@@ -12,7 +12,7 @@ class Robot(Client):
             api_hash=API_HASH,
             api_id=APP_ID,
             plugins={
-                "root": "Automation/plugins"
+                "root": "bot/plugins"
             },
             workers=200,
             bot_token=BOT_TOKEN,
