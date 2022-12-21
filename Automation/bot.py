@@ -1,10 +1,8 @@
 from pyrogram import Client, enums, __version__
-
-from . import API_HASH, APP_ID, LOGGER, BOT_TOKEN 
-
+from Automation import API_HASH, APP_ID, LOGGER, BOT_TOKEN 
 # from Automation.user import User
 
-class Bot(Client):
+class automation(Client):
     USER: User = None
     USER_ID: int = None
 
