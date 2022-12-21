@@ -1,5 +1,5 @@
 import os, sys, asyncio
-from pyrogram import filters, enums
+from pyrogram import filters, enums, Client
 from bot.importss import Config, Translation, Robot
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
