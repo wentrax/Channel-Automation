@@ -5,7 +5,6 @@ logger = logging.getLogger(__name__)
 
 from pyrogram import filters, enums
 from bot.importss import Robot, Config
-from bot.database import *
 
 
 # =
