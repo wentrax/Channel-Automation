@@ -1,5 +1,5 @@
 from pyrogram import filters, enums
-from .importss import Config, Translation, Robot
+from bot.importss import Config, Translation, Robot
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
 @Robot.on_callback_query()
