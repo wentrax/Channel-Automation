@@ -5,7 +5,7 @@ logger = logging.getLogger(__name__)
 from pyrogram import filters, enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from bot.importss import Translation, Robot, Config 
-from bot.database import *
+from bot.database import update_caption, get_caption, del_caption
 
 #all buttons 
 
