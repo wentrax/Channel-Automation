@@ -12,7 +12,7 @@ from pyrogram.types import (
 )
 
 from bot.importss import Robot
-from config import MAINCHANNEL_ID
+from bot.info import Config
 
 document = enums.MessagesFilter.DOCUMENT
 BUTTONS = {}
@@ -24,7 +24,7 @@ async def filter(client: Bot, message: Message):
 
     if len(message.text) > 2:    
         btn = []
-        async for msg in client.USER.search_messages(MAINCHANNEL_ID,query=message.text,filter=document):
+        async for msg in client.USER.search_messages(Config.FILTERCHANNEL_ID,query=message.text,filter=document):
             file_name = msg.document.file_name
             msg_id = msg.id                     
             link = msg.link
