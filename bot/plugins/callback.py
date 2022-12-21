@@ -1,6 +1,12 @@
+import logging
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 from pyrogram import filters, enums
 from bot.importss import Config, Translation, Robot
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from bot.database import *
 
 @Robot.on_callback_query()
 async def button(bot, cmd: CallbackQuery):
