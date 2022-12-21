@@ -4,8 +4,8 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 from pyrogram import filters, enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from .importss import Translation, Robot  
-from .database import *
+from bot.importss import Translation, Robot  
+from bot.database import *
 
 #all buttons 
 
