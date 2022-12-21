@@ -1,21 +1,20 @@
-"""
 from pyrogram import Client, __version__
 
-from AutoForward import API_HASH, APP_ID, LOGGER, \
+from bot import API_HASH, APP_ID, LOGGER, \
     USER_SESSION
 
 
 class User(Client):
     def __init__(self):
         super().__init__(
-            "userbot",
+            "Clientbot",
             api_hash=API_HASH,
             api_id=APP_ID,
             session_string=USER_SESSION,
             workers=20,
-            plugins={
-                "root": "AutoForward/plugins"
-            }
+#            plugins={
+#                "root": "AutoForward/plugins"
+$            }
         )
         self.LOGGER = LOGGER
 
@@ -29,4 +28,3 @@ class User(Client):
     async def stop(self, *args):
         await super().stop()
         self.LOGGER(__name__).info("Bot stopped. Bye.")
-"""
