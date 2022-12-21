@@ -54,10 +54,10 @@ about_button=InlineKeyboardMarkup(
 
 
 @Robot.on_message(filters.command("start") & filters.private)
-async def start(bot, cmd):
+async def start(bot, update):
       await bot.send_message(
-          chat_id = cmd.chat.id,
-          text = Translation.START_TEXT.format(cmd.from_user.first_name, Config.ADMIN_USERNAME), 
+          chat_id = update.chat.id,
+          text = Translation.START_TEXT.format(update.from_user.first_name, Config.ADMIN_USERNAME), 
           reply_to_message_id = update.id,
           parse_mode = enums.ParseMode.MARKDOWN,
           disable_web_page_preview = True, 
@@ -66,9 +66,9 @@ async def start(bot, cmd):
 
 
 @Robot.on_message(filters.command("help") & filters.private)
-async def help(bot, cmd):
+async def help(bot, update):
       await bot.send_message(
-          chat_id = cmd.chat.id,
+          chat_id = update.chat.id,
           text = Translation.HELP_TEXT, 
           reply_to_message_id = update.id,
           parse_mode = enums.ParseMode.HTML,
@@ -78,9 +78,9 @@ async def help(bot, cmd):
 
 
 @Robot.on_message(filters.command("about") & filters.private)
-async def about(bot, cmd):
+async def about(bot, update):
       await bot.send_message(
-          chat_id = cmd.chat.id,
+          chat_id = update.chat.id,
           text = Translation.ABOUT_TEXT, 
           reply_to_message_id = update.id,
           parse_mode = enums.ParseMode.MARKDOWN,
@@ -90,19 +90,19 @@ async def about(bot, cmd):
 
 
 @Robot.on_message(filters.command("set_caption") & filters.private)
-async def set_caption(bot, cmd):
-    if Config.ADMIN_ID != cmd.from_user.id:
+async def set_caption(bot, update):
+    if Config.ADMIN_ID != update.from_user.id:
         return
 
-    if len(cmd.command) == 1:
-        await cmd.reply_text(
+    if len(update.command) == 1:
+        await update.reply_text(
             "🖊️ 𝐒𝐄𝐓 𝐂𝐀𝐏𝐓𝐈𝐎𝐍 \n\nUse this command to set your own caption text \n\n👉 `set_caption My Caption`", 
             quote = True
         )
     else:
-        command, caption = cmd.text.split(' ', 1)
-        await update_caption(cmd.from_user.id, caption)
-        await cmd.reply_text(f"**--Your Caption--:**\n\n{caption}", quote=True)
+        command, caption = update.text.split(' ', 1)
+        await update_caption(update.from_user.id, caption)
+        await update.reply_text(f"**--Your Caption--:**\n\n{caption}", quote=True)
 
 
 
