@@ -2,9 +2,9 @@ from pyrogram import Client, enums, __version__
 from Automation import API_HASH, APP_ID, LOGGER, BOT_TOKEN 
 # from Automation.user import User
 
-class automation(Client):
-    USER: User = None
-    USER_ID: int = None
+class Robot(Client):
+#    USER: User = None
+#    USER_ID: int = None
 
     def __init__(self):
         super().__init__(
