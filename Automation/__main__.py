@@ -1,6 +1,6 @@
-from Automation.bot import automation
+from Automation.bot import Robot
 
 # print("User started") 
-app = automation()
+app = Robot()
 app.run()
 
