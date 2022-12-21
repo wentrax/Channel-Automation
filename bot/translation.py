@@ -1,3 +1,5 @@
+from bot.info import Config
+
 class Translation(object):
 
       
@@ -38,4 +40,13 @@ MY DETAILS:
 
 👥 Group:<b> <b><a href="https://t.me/Hollywood_0980">Hollywood 0980</a></b>
 """
+      
+      FILES_CAPTION = "`{}`\n\n" + str(Config.FILES_CAPTION)
+      COPY_FILES_TEXT = """<b>Follow These Steps!!</b>
+<b>• Currectly fill your Heroku Config vars</b> <code>FROM_CHANNEL</code> and <code>TO_CHANNEL</code> <b>and other Vars</b>
+<b>• Then give admin permission in your personal telegram channel</b>
+<b>• Then send any message In your personal telegram channel</b>
+<b>• Then use /run command in your bot</b>
+<b><u>Available Command</b></u>
 
+* /run - <b>start forward</b>
