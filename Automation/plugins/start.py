@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 from pyrogram import filters, enums
 from Automation.bot import Robot
 from Automation.database.database import *
-from translation import Translation
+from Automation.translation import Translation
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
  
 
