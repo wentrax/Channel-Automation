@@ -14,7 +14,7 @@ class User(Client):
             workers=20,
 #            plugins={
 #                "root": "AutoForward/plugins"
-$            }
+#            }
         )
         self.LOGGER = LOGGER
 
