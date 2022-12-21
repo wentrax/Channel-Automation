@@ -8,9 +8,7 @@ import threading
 import asyncio
 
 from sqlalchemy import Column, Integer, Boolean, String, ForeignKey, UniqueConstraint, func
-
-
-from Automation.info import Config
+from .importss import Config
 
 
 def start() -> scoped_session:
