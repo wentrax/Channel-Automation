@@ -1,6 +1,6 @@
 from pyrogram import Client, enums, __version__
 from . import API_HASH, APP_ID, LOGGER, BOT_TOKEN 
-# from Automation.user import User
+from .clientr import User
 
 class Robot(Client):
 #    USER: User = None
