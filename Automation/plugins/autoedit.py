@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 from pyrogram import filters, enums
 from Automation.bot import Robot
 from Automation.info import Config
-from database.database import *
+from Automation.database.database import *
 
 
 # =
