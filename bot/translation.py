@@ -21,9 +21,9 @@ class Translation(object):
 
 • /about - <b>About Me</b>
 
-• /info - <b>get your telegram ID info.
+• /info - <b>get your telegram ID info</b>
 
-• /id - <b>Your telegram ID</b
+• /id - <b>Your telegram ID</b>
 """
 
 
