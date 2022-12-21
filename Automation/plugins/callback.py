@@ -3,7 +3,7 @@ from Automation.bot import Robot
 from Automation.info import Config
 from Automation.translation import Translation
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-
+from Automation.database.database import *
 
 @Robot.on_callback_query()
 async def button(bot, cmd: CallbackQuery):
