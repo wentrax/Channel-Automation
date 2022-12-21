@@ -68,6 +68,7 @@ async def filter(client: Robot, message: Message):
                 reply_markup=InlineKeyboardMarkup(buttons)
             )    
 
+
 def split_list(l, n):
     for i in range(0, len(l), n):
         yield l[i:i + n]  
