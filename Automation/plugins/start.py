@@ -3,10 +3,9 @@ logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-import pyrogram
 from pyrogram import filters, enums
 from Automation.bot import Robot
-from database.database import *
+from Automation.database.database import *
 from translation import Translation
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
  
