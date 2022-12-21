@@ -96,7 +96,7 @@ async def button(bot, update: CallbackQuery):
 
 
 @Robot.on_callback_query()
-async def cb_handler(client: Bot, query: CallbackQuery):
+async def cb_handler(client: Robot, query: CallbackQuery):
     if query.message.reply_to_message.from_user.id == query.from_user.id:
 
         if query.data.startswith("next"):
