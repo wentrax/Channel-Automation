@@ -7,6 +7,6 @@ class Config(object):
      
       FROM_CHANNEL = "@bdbdhdhvh"       
       TO_CHANNEL = -1001531149575
-      FILES_CAPTION = "HQFilms4U'
+      FILES_CAPTION = "HQFilms4U"
 
       FILTERCHANNEL_ID =  -1001743048821   
