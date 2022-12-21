@@ -13,8 +13,7 @@ caption_position = usercaption_position.lower()
 
 
 @Robot.on_message(filters.channel & (filters.document | filters.video | filters.audio))
-async def editing(bot, message):
-      caption_text = await get_caption(Config.ADMIN_ID)
+async def editing(bot, message):      
       try:
          caption_text = "@HQFilms4U"
       except:
