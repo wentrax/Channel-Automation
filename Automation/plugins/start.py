@@ -8,7 +8,7 @@ from pyrogram import filters
 from Automation.bot import Robot
 from database.database import *
 from translation import Translation
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
  
 
 #all buttons 
