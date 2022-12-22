@@ -4,8 +4,8 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQ
 from pyrogram.errors import FloodWait
 from bot.importss import Config, Translation
 
-FROM = Config.FROM_CHANNEL
-TO = Config.TO_CHANNEL
+FROM = Config.FILES_FROM_CHANNEL
+TO = Config.FILES_TO_CHANNEL
 
 document = enums.MessagesFilter.DOCUMENT 
 
