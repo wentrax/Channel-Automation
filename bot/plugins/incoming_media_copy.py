@@ -26,3 +26,5 @@ async def forward(bot, update):
             caption=update.caption,
             parse_mode=enums.ParseMode.MARKDOWN
         )
+    except FloodWait as e:
+        await asyncio.sleep(e.value)
