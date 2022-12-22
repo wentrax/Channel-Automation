@@ -3,8 +3,8 @@ from . import API_HASH, APP_ID, LOGGER, BOT_TOKEN
 from .client import User
 
 class Robot(Client):
-$    USER: User = None
-$    USER_ID: int = None
+#     USER: User = None
+#    USER_ID: int = None
 
     def __init__(self):
         super().__init__(
