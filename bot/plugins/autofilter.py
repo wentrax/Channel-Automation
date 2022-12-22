@@ -11,14 +11,14 @@ from pyrogram.types import (
     CallbackQuery
 )
 
-from bot.importss import Robot
+from bot.importss import Robot as Bot
 from bot.info import Config
 
 document = enums.MessagesFilter.DOCUMENT
 BUTTONS = {}
  
 @Client.on_message(filters.group & filters.text)
-async def filter(client: Robot, message: Message):
+async def filter(client: Bot, message: Message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
 
@@ -70,12 +70,19 @@ async def filter(client: Robot, message: Message):
 
 
 @Client.on_callback_query()
-async def cb_handler(client: update: Robot, query: CallbackQuery):
-    if update.message.reply_to_message.update.from_user.id == query.from_user.id:
+async def cb_navg(bot, update: CallbackQuery):
+    """
+    A Callback Funtion For The Next Button Appearing In Results
+    """
+    global VERIFY
+    query_data = update.data
+    chat_id = update.message.chat.id
+    user_id = update.from_user.id
+    if update.message.reply_to_message.user_id
 
-        if query.data.startswith("next"):
-            await query.answer()
-            ident, index, keyword = query.data.split("_")
+        if update.data.startswith("next"):
+            await update.answer()
+            ident, index, keyword = update.data.split("_")
             data = BUTTONS[keyword]
 
             if int(index) == int(data["total"]) - 2:
@@ -88,7 +95,7 @@ async def cb_handler(client: update: Robot, query: CallbackQuery):
                     [InlineKeyboardButton(f"📃 Pages {int(index)+2}/{data['total']}", callback_data="pages")]
                 )
 
-                await query.edit_message_reply_markup( 
+                await update.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
                 )
                 return
@@ -102,15 +109,15 @@ async def cb_handler(client: update: Robot, query: CallbackQuery):
                     [InlineKeyboardButton(f"📃 Pages {int(index)+2}/{data['total']}", callback_data="pages")]
                 )
 
-                await query.edit_message_reply_markup( 
+                await update.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
                 )
                 return
 
 
-        elif query.data.startswith("back"):
-            await query.answer()
-            ident, index, keyword = query.data.split("_")
+        elif update.data.startswith("back"):
+            await update.answer()
+            ident, index, keyword = update.data.split("_")
             data = BUTTONS[keyword] 
 
             if int(index) == 1:
@@ -123,7 +130,7 @@ async def cb_handler(client: update: Robot, query: CallbackQuery):
                     [InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
                 )
 
-                await query.edit_message_reply_markup( 
+                await update.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
                 )
                 return   
@@ -137,17 +144,17 @@ async def cb_handler(client: update: Robot, query: CallbackQuery):
                     [InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
                 )
 
-                await query.edit_message_reply_markup( 
+                await update.edit_message_reply_markup( 
                     reply_markup=InlineKeyboardMarkup(buttons)
                 )
                 return
 
 
-        elif query.data == "pages":
-            await query.answer()
+        elif update.data == "pages":
+            await update.answer()
 
     else:
-        await query.answer("Thats not for you!!",show_alert=True)
+        await update.answer("Thats not for you!!",show_alert=True)
 
 
 
