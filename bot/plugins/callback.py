@@ -94,7 +94,7 @@ async def button(bot, update: CallbackQuery):
 
 
 
-
+"""
 @Robot.on_callback_query()
 async def cb_handler(client: Robot, query: CallbackQuery):
     if query.message.reply_to_message.from_user.id == query.from_user.id:
@@ -176,3 +176,4 @@ async def cb_handler(client: Robot, query: CallbackQuery):
     else:
         await query.answer("Thats not for you!!",show_alert=True)
 
+"""
