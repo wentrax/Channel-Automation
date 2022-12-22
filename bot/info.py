@@ -13,3 +13,5 @@ class Config(object):
       FILTERCHANNEL_ID =  -1001743048821   
 
       CHANNEL_FORWARD_ID = ("").replace("\n", " ").split(' '))      
+
+      MEDIACOPY_ID = -1001774936179
