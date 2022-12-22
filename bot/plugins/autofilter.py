@@ -71,7 +71,7 @@ async def filter(client: Bot, message: Message):
 
 @Client.on_callback_query()
 async def cb_handler(client: Bot, message: Message, update: CallbackQuery):
-    if update.message.reply_to_message.update.from_user.id:
+    if update.message.reply_to_message.from_user.id == update.from_user.id:
 
         if update.data.startswith("next"):
             await update.answer()
