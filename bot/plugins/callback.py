@@ -93,7 +93,7 @@ async def button(bot, update: CallbackQuery):
 
 
 @Client.on_callback_query()
-async def cb_handler(client: Bot, message: CallbackQuery):
+async def cb_handler(client: Robot, message: CallbackQuery):
     if message.reply_to_message.from_user.id == message.from_user.id:
 
         if message.data.startswith("next"):
