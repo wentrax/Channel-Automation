@@ -24,7 +24,7 @@ async def forward(bot, update):
     try:      
         await bot.copy_message(
             chat_id=-1001774936179,
-            from_chat_id=1001743048821,
+            from_chat_id=-1001743048821,
             message_id=update.id,
             caption=f"**{update.caption}**".replace("Latest_Movies_Reborn", "**HQFilms4U**"), # + "\n\n" "<b>@HQFilms4U</b>",       
             parse_mode=enums.ParseMode.MARKDOWN
