@@ -70,7 +70,7 @@ async def filter(client: Bot, message: Message):
 
 
 @Client.on_callback_query()
-async def cb_handler(client: Bot, update: CallbackQuery):
+async def cb_handler(message: Bot, update: CallbackQuery):
     if update.message.reply_to_message.update.from_user.id:
 
         if update.data.startswith("next"):
