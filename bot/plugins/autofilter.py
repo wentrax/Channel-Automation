@@ -35,8 +35,8 @@ async def filter(client: Bot, message: Message):
         if not btn:
             return
 
-        if len(btn) > 10: 
-            btns = list(split_list(btn, 10)) 
+        if len(btn) > 5: 
+            btns = list(split_list(btn, 5)) 
             keyword = f"{message.chat.id}-{message.id}"
             BUTTONS[keyword] = {
                 "total" : len(btns),
@@ -70,7 +70,7 @@ async def filter(client: Bot, message: Message):
 
 
 @Client.on_callback_query()
-async def cb_handler(client: Bot, update: Message, CallbackQuery):
+async def cb_handler(client: Bot, message: Message, update: CallbackQuery):
     if update.message.reply_to_message.update.from_user.id:
 
         if update.data.startswith("next"):
