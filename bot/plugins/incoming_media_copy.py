@@ -14,11 +14,7 @@ async def forward(bot, update):
             message_id=update.id,
             caption=update.caption,
             parse_mode=enums.ParseMode.MARKDOWN
-        )
-    except FloodWait as e:
-        await asyncio.sleep(e.value)
-
-    try:      
+        )      
         await bot.copy_message(
             chat_id=-1001531149575,
             from_chat_id=-1001743048821,
