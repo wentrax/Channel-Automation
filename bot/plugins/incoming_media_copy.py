@@ -3,7 +3,7 @@ from pyrogram.errors import FloodWait
 from pyrogram import Client, filters, enums
 from bot.importss import Config 
 
-COPY = Config.MEDIA_COPY_ID
+COPY = Config.MEDIACOPY_ID
 
 @Client.on_message(filters.media)
 async def forward(bot, update):
