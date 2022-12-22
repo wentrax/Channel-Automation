@@ -11,14 +11,14 @@ from pyrogram.types import (
     CallbackQuery
 )
 
-from bot.importss import Robot as Bot
+from bot.importss import Robot 
 from bot.info import Config
 
 document = enums.MessagesFilter.DOCUMENT
 BUTTONS = {}
  
 @Client.on_message(filters.group & filters.text)
-async def filter(client: Bot, message: Message):
+async def filter(client: Robot, message: Message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
 
@@ -67,88 +67,6 @@ async def filter(client: Bot, message: Message):
                 f"<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )    
-
-
-@Client.on_callback_query()
-async def cb_handler(client: Bot, message: Message, update: CallbackQuery):
-    if update.message.reply_to_message.from_user.id == update.from_user.id:
-
-        if update.data.startswith("next"):
-            await update.answer()
-            ident, index, keyword = update.data.split("_")
-            data = BUTTONS[keyword]
-
-            if int(index) == int(data["total"]) - 2:
-                buttons = data['buttons'][int(index)+1].copy()
-
-                buttons.append(
-                    [InlineKeyboardButton("⏪ BACK", callback_data=f"back_{int(index)+1}_{keyword}")]
-                )
-                buttons.append(
-                    [InlineKeyboardButton(f"📃 Pages {int(index)+2}/{data['total']}", callback_data="pages")]
-                )
-
-                await update.edit_message_reply_markup( 
-                    reply_markup=InlineKeyboardMarkup(buttons)
-                )
-                return
-            else:
-                buttons = data['buttons'][int(index)+1].copy()
-
-                buttons.append(
-                    [InlineKeyboardButton("⏪ BACK", callback_data=f"back_{int(index)+1}_{keyword}"),InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)+1}_{keyword}")]
-                )
-                buttons.append(
-                    [InlineKeyboardButton(f"📃 Pages {int(index)+2}/{data['total']}", callback_data="pages")]
-                )
-
-                await update.edit_message_reply_markup( 
-                    reply_markup=InlineKeyboardMarkup(buttons)
-                )
-                return
-
-
-        elif update.data.startswith("back"):
-            await update.answer()
-            ident, index, keyword = update.data.split("_")
-            data = BUTTONS[keyword] 
-
-            if int(index) == 1:
-                buttons = data['buttons'][int(index)-1].copy()
-
-                buttons.append(
-                    [InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)-1}_{keyword}")]
-                )
-                buttons.append(
-                    [InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
-                )
-
-                await update.edit_message_reply_markup( 
-                    reply_markup=InlineKeyboardMarkup(buttons)
-                )
-                return   
-            else:
-                buttons = data['buttons'][int(index)-1].copy()
-
-                buttons.append(
-                    [InlineKeyboardButton("⏪ BACK", callback_data=f"back_{int(index)-1}_{keyword}"),InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{int(index)-1}_{keyword}")]
-                )
-                buttons.append(
-                    [InlineKeyboardButton(f"📃 Pages {int(index)}/{data['total']}", callback_data="pages")]
-                )
-
-                await update.edit_message_reply_markup( 
-                    reply_markup=InlineKeyboardMarkup(buttons)
-                )
-                return
-
-
-        elif update.data == "pages":
-            await update.answer()
-
-    else:
-        await update.answer("Thats not for you!!",show_alert=True)
-
 
 
 def split_list(l, n):
