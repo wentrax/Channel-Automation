@@ -71,14 +71,7 @@ async def filter(client: Bot, message: Message):
 
 @Client.on_callback_query()
 async def cb_handler(client: Bot, update: CallbackQuery):
-    """
-    A Callback Funtion For The Next Button Appearing In Results
-    """
-    global VERIFY
-    query_data = update.data
-    chat_id = update.message.chat.id
-    user_id = update.from_user.id
-    if update.reply_to_message.update.from_user.id == update.from_user.id:
+    if update.message.reply_to_message.update.from_user.id:
 
         if update.data.startswith("next"):
             await update.answer()
