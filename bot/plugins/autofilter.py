@@ -78,7 +78,7 @@ async def cb_navg(bot, update: CallbackQuery):
     query_data = update.data
     chat_id = update.message.chat.id
     user_id = update.from_user.id
-    if update.message.reply_to_message.user_id
+    if update.message.reply_to_message.user_id:
 
         if update.data.startswith("next"):
             await update.answer()
