@@ -1,3 +1,5 @@
+from os import getenv
+
 class Config(object):
       CAPTION_POSITION = "bottom"
 
