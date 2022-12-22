@@ -70,8 +70,8 @@ async def filter(client: Robot, message: Message):
 
 
 @Client.on_callback_query()
-async def cb_handler(client: Robot, query: CallbackQuery):
-    if query.message.reply_to_message.from_user.id == query.from_user.id:
+async def cb_handler(client: update: Robot, query: CallbackQuery):
+    if update.message.reply_to_message.update.from_user.id == query.from_user.id:
 
         if query.data.startswith("next"):
             await query.answer()
