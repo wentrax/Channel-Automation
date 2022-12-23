@@ -9,10 +9,11 @@ COPY = Config.MEDIACOPY_ID
 async def forward(bot, update):
     try:      
         await bot.copy_message(
-            chat_id=-1001427335527, 
+            chat_id=-1001641840781, 
             from_chat_id=-1001531149575, 
             message_id=update.id, 
-            caption=f"**{update.caption}**".replace("Latest_Movies_Reborn", f"**DXClassic**"), 
+            caption=update.caption.replace("Latest_Movies_Reborn", "DXClassic"), 
+            boldtext=f"**{caption}**",
             parse_mode=enums.ParseMode.MARKDOWN                     
         )
     except FloodWait as e:
