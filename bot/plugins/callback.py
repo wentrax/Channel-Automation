@@ -1,3 +1,4 @@
+"""
 import os, sys, asyncio
 from pyrogram import filters, enums, Client
 from bot.importss import Config, Translation, Robot
@@ -93,3 +94,4 @@ async def button(bot, update: CallbackQuery):
 
 
 
+"""
