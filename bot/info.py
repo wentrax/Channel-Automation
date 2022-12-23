@@ -10,6 +10,7 @@ class Config(object):
      
       FILES_FROM_CHANNEL = "@bdbdhdhvh"       
       FILES_TO_CHANNEL = -1001531149575
+      FILES_CAPTION = "@HQFilms4U"
 
       AUTO_FILTER_TYPE ="document"
       AUTO_FILTER_CHANNEL =  -1001743048821   
