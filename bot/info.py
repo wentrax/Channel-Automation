@@ -14,6 +14,6 @@ class Config(object):
 
       FILTERCHANNEL_ID =  -1001743048821   
 
-      MULTI_CHANNEL_FORWARD_IDS = list(x for x in getenv("CHANNEL_ID", "-1001531149575:-1001743048821").replace("\n", " ").split(' '))
+      MULTI_CHANNEL_FORWARD_IDS = list(x for x in getenv("CHANNEL_ID", "-1001688669689:-1001641840781").replace("\n", " ").split(' '))
 
       MEDIACOPY_ID = -1001774936179
