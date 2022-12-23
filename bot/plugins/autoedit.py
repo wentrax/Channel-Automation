@@ -1,3 +1,4 @@
+"""
 import logging
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -55,3 +56,4 @@ async def editing(bot, message):
       except:
           pass
 
+"""
