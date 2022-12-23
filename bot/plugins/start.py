@@ -29,7 +29,7 @@ async def help(bot, update):
       )
 
 @Robot.on_message(filters.command("forward_files") & filters.private)
-async def help(bot, update):
+async def forward_files(bot, update):
       await bot.send_message(
           chat_id = update.chat.id,
           text = Translation.FORWARD_FILES, 
