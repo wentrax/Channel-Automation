@@ -7,14 +7,11 @@ from bot import API_HASH, APP_ID, LOGGER, \
 class User(Client):
     def __init__(self):
         super().__init__(
-            "Clientbot",
+            "userrbot",
             api_hash=API_HASH,
             api_id=APP_ID,
             session_string=USER_SESSION,
-            workers=20,
-#            plugins={
-#                "root": "AutoForward/plugins"
-#            }
+            workers=20
         )
         self.LOGGER = LOGGER
 
