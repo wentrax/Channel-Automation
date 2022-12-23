@@ -19,7 +19,7 @@ async def start(bot, update):
 
 
 @Robot.on_message(filters.command("help") & filters.private)
-async def help(bot, cmd):
+async def help(bot, update):
       await bot.send_message(
           chat_id = update.chat.id,
           text = Translation.HELP_TEXT, 
@@ -29,7 +29,7 @@ async def help(bot, cmd):
       )
 
 @Robot.on_message(filters.command("forward_files") & filters.private)
-async def help(bot, cmd):
+async def help(bot, update):
       await bot.send_message(
           chat_id = update.chat.id,
           text = Translation.FORWARD_FILES, 
