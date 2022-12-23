@@ -2,7 +2,7 @@ from pyrogram import Client, enums, __version__
 
 from . import API_HASH, APP_ID, LOGGER, BOT_TOKEN 
 
-from .user import User
+from .client import User
 
 class Bot(Client):
     USER: User = None
