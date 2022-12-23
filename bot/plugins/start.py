@@ -17,11 +17,22 @@ async def start(bot, update):
           disable_web_page_preview = True,           
       )
 
+
 @Robot.on_message(filters.command("help") & filters.private)
 async def help(bot, cmd):
       await bot.send_message(
           chat_id = update.chat.id,
           text = Translation.HELP_TEXT, 
+          reply_to_message_id = update.message.id,
+          parse_mode = enums.ParseMode.HTML,
+          disable_web_page_preview = True,           
+      )
+
+@Robot.on_message(filters.command("forward_files") & filters.private)
+async def help(bot, cmd):
+      await bot.send_message(
+          chat_id = update.chat.id,
+          text = Translation.FORWARD_FILES, 
           reply_to_message_id = update.message.id,
           parse_mode = enums.ParseMode.HTML,
           disable_web_page_preview = True,           
