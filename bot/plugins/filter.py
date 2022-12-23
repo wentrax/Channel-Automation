@@ -1,10 +1,10 @@
-import re, os, sys, asyncio, pyrogram
-import os, sys, asyncio
+import re, pyrogram, logging
 from pyrogram import filters, enums, Client
 from bot.importss import Config, Translation, Robot
 from bot.importss import Robot as Bot
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
-    
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)   
 
 DOCUMENT = enums.MessagesFilter.DOCUMENT
 BUTTONS = {}
