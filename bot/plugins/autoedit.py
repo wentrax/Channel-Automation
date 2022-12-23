@@ -8,7 +8,7 @@ from bot.importss import Robot, Config
 
 media_filter = filters.document | filters.video | filters.audio
 
-@Robot.on_message(filters.chat(-1001667023505, -1001743048821) & media_filter)
+@Robot.on_message(filters.chat([-1001667023505,-1001743048821]) & media_filter)
 async def editing(bot, message):      
       try:
          caption_text = Config.CAPTION_TEXT
