@@ -6,11 +6,9 @@ logger = logging.getLogger(__name__)
 from pyrogram import filters, enums
 from bot.importss import Robot, Config
 
-
-CNL = Config.CAPTION_CHANNEL
 media_filter = filters.document | filters.video | filters.audio
 
-@Robot.on_message(filters.chat(CNL) & media_filter)
+@Robot.on_message(filters.chat(-1001667023505, -1001743048821) & media_filter)
 async def editing(bot, message):      
       try:
          caption_text = Config.CAPTION_TEXT
