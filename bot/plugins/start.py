@@ -23,7 +23,7 @@ async def help(bot, update):
       await bot.send_message(
           chat_id = update.chat.id,
           text = Translation.HELP_TEXT, 
-          reply_to_message_id = update.message.id,
+          reply_to_message_id = update.id,
           parse_mode = enums.ParseMode.HTML,
           disable_web_page_preview = True,           
       )
@@ -33,7 +33,7 @@ async def help(bot, update):
       await bot.send_message(
           chat_id = update.chat.id,
           text = Translation.FORWARD_FILES, 
-          reply_to_message_id = update.message.id,
+          reply_to_message_id = update.id,
           parse_mode = enums.ParseMode.HTML,
           disable_web_page_preview = True,           
       )
