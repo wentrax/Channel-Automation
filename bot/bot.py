@@ -4,7 +4,7 @@ from . import API_HASH, APP_ID, LOGGER, BOT_TOKEN
 
 from .client import User
 
-class Bot(Client):
+class Robot(Client):
     USER: User = None
     USER_ID: int = None
 
