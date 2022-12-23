@@ -6,6 +6,8 @@ logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+caption_position = "bottom"
+caption_position = usercaption_position.lower()
 TEXT = "@HQFilms4U"
 media_filter = filters.document | filters.video | filters.audio
 
@@ -27,7 +29,7 @@ async def editing(bot, message):
              file_caption = f"`{filename}`"  
               
       try:
-          if caption_position == "top":
+          if caption_position == "bottom":
              await bot.edit_message_caption(
                  chat_id=message.chat.id, 
                  message_id=message.id,
