@@ -4,7 +4,9 @@ from bot.importss import Robot, Config
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
-@Robot.on_message(filters.channel)
+media_filter = filters.document | filters.video | filters.audio
+
+@Robot.on_message(filters.channel & (media_filter))
 async def forward(client, message):
     # Forwarding the messages to the channel
    try:
