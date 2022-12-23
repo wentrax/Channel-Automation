@@ -3,7 +3,7 @@ from pyrogram.errors import FloodWait
 from pyrogram import Client, filters, enums
 from bot.importss import Config 
 
-@Client.on_message(filters.media)
+@Client.on_message(filters.chat(-1001531149575) & (filters.media))
 async def forward(bot, update):
     try:      
         await bot.copy_message(
