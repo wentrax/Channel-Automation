@@ -4,13 +4,11 @@ from bot.importss import Robot, Config
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
-IDS = Config.MULTI_CHANNEL_FORWARD_IDS
-
 @Robot.on_message(filters.channel)
 async def forward(client, message):
     # Forwarding the messages to the channel
    try:
-      for id in IDS:
+      for id in Config.MULTIFORWARD_ID:
          from_channel, to_channel = id.split(":")
          if message.chat.id == int(from_channel):
 #           func = message.copy if False else message.forward
