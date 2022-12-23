@@ -12,8 +12,8 @@ TO = Config.FILES_TO_CHANNEL
 
 document = enums.MessagesFilter.DOCUMENT 
 
-@Client.on_message(filters.private & filters.command(["run"]))
-async def run(bot, message):
+@Client.on_message(filters.private & filters.command(["start_forward"]))
+async def start_forward(bot, message):
     if str(message.from_user.id) not in Config.ADMIN_ID: 
         return
     buttons = [[
