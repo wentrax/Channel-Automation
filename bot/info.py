@@ -17,5 +17,5 @@ class Config(object):
 
       MULTI_CHANNEL_FORWARD_IDS = list(x for x in getenv("CHANNEL_ID", "-1001688669689:-1001641840781").replace("\n", " ").split(' '))
       
-      CAPTION_TEXT = " ➠ @Hollywood_0980\n➠ @DFF_UPDATES"
+      CAPTION_TEXT = "➠ @Hollywood_0980"
       CAPTION_CHANNEL = [-1001667023505, -1001743048821]
