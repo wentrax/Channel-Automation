@@ -1,9 +1,8 @@
-import logging
-logger = logging.getLogger(__name__)
-
-import asyncio
+import logging, asyncio
 from pyrogram import filters
 from bot.importss import Robot, Config
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
 
 IDS = Config.MULTI_CHANNEL_FORWARD_IDS
 
