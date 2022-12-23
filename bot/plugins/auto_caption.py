@@ -6,7 +6,7 @@ logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-TEXT = "@HQFilms4U"
+TEXT = "➠ @Hollywood_0980\n➠ @DFF_UPDATES"
 media_filter = filters.document | filters.video | filters.audio
 
 
@@ -29,7 +29,7 @@ async def editing(bot, message):
       try:                       await bot.edit_message_caption(
                  chat_id=message.chat.id, 
                  message_id=message.id,
-                 caption=file_caption + "\n" + caption_text,
+                 caption=file_caption + "\n" + f"**{caption_text}**",
                  parse_mode=enums.ParseMode.MARKDOWN
              )
 
