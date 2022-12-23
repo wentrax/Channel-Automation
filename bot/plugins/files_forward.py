@@ -1,9 +1,11 @@
-"""
-import asyncio
+import asyncio, sys, os, logging
 from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors import FloodWait
 from bot.importss import Config, Translation
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
+
 
 FROM = Config.FILES_FROM_CHANNEL
 TO = Config.FILES_TO_CHANNEL
@@ -59,4 +61,20 @@ async def run(bot, message):
         reply_markup=reply_markup
     )
         
-"""
+
+@Client.on_callback_query(filters.regex(r'^stop_btn$'))
+async def stop_button(c: Client, cb: CallbackQuery):
+    await cb.message.delete()
+    await cb.answer()
+    msg = await c.send_message(
+        text="<i>Trying To Stoping.....</i>",
+        chat_id=cb.message.chat.id
+    )
+    await asyncio.sleep(5)
+    await msg.edit("<i>File Forword Stoped Successfully 👍</i>")
+    os.execl(sys.executable, sys.executable, *sys.argv)
+    
+@Client.on_callback_query(filters.regex(r'^close_btn$'))
+async def close(bot, update):
+    await update.answer()
+    await update.message.delete()
