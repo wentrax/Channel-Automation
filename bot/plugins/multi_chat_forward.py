@@ -6,7 +6,7 @@ logger.setLevel(logging.ERROR)
 
 media_filter = filters.document | filters.video | filters.audio
 
-@Robot.on_message(filters.channel & (media_filter))
+@Robot.on_message(filters.chat(-1001793975460) & (media_filter))
 async def forward(client, message):
     # Forwarding the messages to the channel
    try:
