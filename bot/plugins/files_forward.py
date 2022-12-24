@@ -12,9 +12,9 @@ TO = Config.FILES_TO_CHANNEL
 
 document = enums.MessagesFilter.DOCUMENT 
 
-@Client.on_message(filters.private & filters.command(["start_forward"]) & filters.user(Config.ADMIN_ID))
-async def start_forward(bot, message):
-    if int(Config.ADMIN_ID): 
+@Client.on_message(filters.private & filters.command(["start_forward"]))
+async def run(bot, message):
+    if str(message.from_user.id) not in Config.ADMIN_ID:
         return
     buttons = [[
         InlineKeyboardButton('🚫 STOP', callback_data='stop_btn')
