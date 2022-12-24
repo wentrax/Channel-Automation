@@ -12,7 +12,7 @@ TO = Config.FILES_TO_CHANNEL
 
 document = enums.MessagesFilter.DOCUMENT 
 
-@Client.on_message(filters.private & filters.command(["start_forward"]))
+@Client.on_message(filters.private & filters.command(["start_forward"]) & filters.user(Config.ADMIN_ID))
 async def start_forward(bot, message):
     if int(Config.ADMIN_ID): 
         return
