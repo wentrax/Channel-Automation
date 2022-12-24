@@ -44,7 +44,7 @@ async def run(bot, message):
                 chat_id=TO,
                 from_chat_id=FROM,
                 parse_mode=enums.ParseMode.MARKDOWN,       
-                caption=f"**{message.caption}**".replace(rpl1c, rplc1d).replace(rpl2c, rplc1d).replace("➠", " ").replace("@DFF_UPDATE", " ").replace("@DFF_UPDATES", " "),
+                caption=f"**{message.caption}**".replace(rpl1c, rplc1d).replace(rpl2c, rplc1d).replace("➠", " ").replace("@DFF_UPDATES", " ").replace("@DFF_UPDATE", " "),
                 message_id=message.id
             )
             files_count += 1
