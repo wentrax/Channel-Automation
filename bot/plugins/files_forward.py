@@ -13,8 +13,8 @@ rpl1c = "➠ @Hollywood_0980 ✅\n➠ @DFF_UPDATE"
 
 rpl2c = "@Hollywood_0980"
 rpl3c = "@LkLMNL_09870"
-rpl4c "➠ @Hollywood_0980\n➠ @DFF_UPDATE"
-rpl5c " ➠ @Hollywood_0980\n➠ @DFF_UPDATES"
+rpl4c = "➠ @Hollywood_0980\n➠ @DFF_UPDATE"
+rpl5c = " ➠ @Hollywood_0980\n➠ @DFF_UPDATES"
 
 rplcd = "@DXClassic | @Only1DX"
 """
