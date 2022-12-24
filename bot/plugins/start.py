@@ -7,7 +7,8 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from bot.importss import Translation, Robot, Config 
 
 
-@Robot.on_message(filters.command("start") & filters.private)
+
+@Robot.on_message(filters.command('start') & filters.user(Config.ADMINS))
 async def start(bot, update):
       await bot.send_message(
           chat_id = update.chat.id,
@@ -18,7 +19,7 @@ async def start(bot, update):
       )
 
 
-@Robot.on_message(filters.command("help") & filters.private)
+@Robot.on_message(filters.command('help') & filters.user(Config.ADMINS))
 async def help(bot, update):
       await bot.send_message(
           chat_id = update.chat.id,
@@ -28,7 +29,7 @@ async def help(bot, update):
           disable_web_page_preview = True,           
       )
 
-@Robot.on_message(filters.command("forward_files") & filters.private)
+@Robot.on_message(filters.command('forward_help') & filters.user(Config.ADMINS))
 async def forward_files(bot, update):
       await bot.send_message(
           chat_id = update.chat.id,
