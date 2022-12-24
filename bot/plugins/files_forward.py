@@ -56,7 +56,7 @@ async def run(bot, message):
                 chat_id=TO,
                 from_chat_id=FROM,
                 parse_mode=enums.ParseMode.MARKDOWN,       
-                caption=message.replace(rpl1c, rplcd).replace(rpl2c, rplcd).replace(rpl3c, rplcd).replace(rpl4c, rplcd).replace(rpl5c, rplcd),
+                caption=f"**{message.caption}**".replace(rpl1c, rplcd).replace(rpl2c, rplcd).replace(rpl3c, rplcd).replace(rpl4c, rplcd).replace(rpl5c, rplcd),
                 message_id=message.id
             )
             files_count += 1
