@@ -9,22 +9,13 @@ logger.setLevel(logging.ERROR)
 FROM = Config.FILES_FROM_CHANNEL
 TO = Config.FILES_TO_CHANNEL
 
-rpl1c = "➠ @Hollywood_0980 ✅\n➠ @DFF_UPDATE"
+rpl1c = "Hollywood_0980"
+rpl3c = "LkLMNL_09870"
+rpl4c = "DFF_UPDATE"
+rpl5c = "DFF_UPDATES"
 
-rpl2c = "@Hollywood_0980"
-rpl3c = "@LkLMNL_09870"
-rpl4c = "➠ @Hollywood_0980\n➠ @DFF_UPDATE"
-rpl5c = " ➠ @Hollywood_0980\n➠ @DFF_UPDATES"
-
-rplcd = "@DXClassic | @Only1DX"
-"""
-CODE = replace(
-         rpl1c, 
-         rplcd
-       ).replace(
-         rpl2c, 
-         rplcd).replace(rpl3c, rplcd).replace(rpl4c, rplcd).replace(rpl5c, rplcd)
-"""
+rplc1d = "DXClassic"
+rplc2d = "Only1DX"
 document = enums.MessagesFilter.DOCUMENT 
 
 @Client.on_message(filters.private & filters.command(["start_forward"]))
@@ -56,7 +47,7 @@ async def run(bot, message):
                 chat_id=TO,
                 from_chat_id=FROM,
                 parse_mode=enums.ParseMode.MARKDOWN,       
-                caption=f"**{message.caption}**".replace(rpl1c, rplcd).replace(rpl2c, rplcd).replace(rpl3c, rplcd).replace(rpl4c, rplcd).replace(rpl5c, rplcd),
+                caption=f"**{message.caption}**".replace(rpl1c, rplc1d).replace(rpl3c, rplc1d).replace(rpl4c, rplc2d).replace(rpl5c, rplc2d),
                 message_id=message.id
             )
             files_count += 1
