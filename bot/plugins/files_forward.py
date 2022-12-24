@@ -12,11 +12,10 @@ TO = Config.FILES_TO_CHANNEL
 rpl1c = "Hollywood_0980"
 rpl3c = "LkLMNL_09870"
 rpl4c = "DFF_UPDATE"
-rpl5c = "@DFF_UPDATES"
+rpl5c = "DFF_UPD"
 
 rplc1d = "DXClassic"
 rplc2d = "Only1DX"
-rplc3d = "@Only1DX"
 document = enums.MessagesFilter.VIDEO
 
 @Client.on_message(filters.private & filters.command(["start_forward"]))
@@ -48,7 +47,7 @@ async def run(bot, message):
                 chat_id=TO,
                 from_chat_id=FROM,
                 parse_mode=enums.ParseMode.MARKDOWN,       
-                caption=f"**{message.caption}**".replace(rpl1c, rplc1d).replace(rpl3c, rplc1d).replace(rpl4c, rplc2d).replace(rpl5c, rplc3d),
+                caption=f"**{message.caption}**".replace(rpl1c, rplc1d).replace(rpl3c, rplc1d).replace(rpl4c, rplc2d).replace(rpl5c, rplc2d).replace("ATES", " "),
                 message_id=message.id
             )
             files_count += 1
