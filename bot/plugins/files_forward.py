@@ -13,10 +13,9 @@ rpl1c = "Hollywood_0980"
 rpl3c = "LkLMNL_09870"
 rpl4c = "DFF_UPDATE"
 rpl5c = "DFF_UPDATES"
-DFF_UPDATE Dff_Update
 
 rplc1d = "DXClassic"
-rplc2d = "Only1DX"
+rplc2d = "Only1DX ."
 document = enums.MessagesFilter.VIDEO
 
 @Client.on_message(filters.private & filters.command(["start_forward"]))
