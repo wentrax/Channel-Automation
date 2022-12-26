@@ -2,7 +2,7 @@ import re, pyrogram, logging
 from pyrogram import filters, enums, Client
 from bot.importss import Config, Translation, Robot
 from bot.importss import Robot as Bot
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message #, CallbackQuery
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)   
 
@@ -60,7 +60,7 @@ async def filter(client: Bot, message: Message):
                 reply_markup=InlineKeyboardMarkup(buttons)
             )    
 
-
+"""
 @Client.on_callback_query()
 async def cb_handler(client: Bot, query: CallbackQuery):
     if query.message.reply_to_message.from_user.id == query.from_user.id:
@@ -146,3 +146,4 @@ def split_list(l, n):
         yield l[i:i + n]  
 
 
+"""
