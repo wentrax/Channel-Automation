@@ -35,7 +35,8 @@ async def editing(bot, message):
 
       except:
           pass
-"""
+
+
 @Client.on_message(filters.chat(-1001531149575) & (media_filter))
 async def editing(bot, message):
       try:
@@ -61,4 +62,3 @@ async def editing(bot, message):
 
       except:
           pass
-"""
