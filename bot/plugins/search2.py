@@ -3,7 +3,7 @@ import re, pyrogram, logging
 from pyrogram import filters, enums, Client
 from bot.importss import Config, Translation, Robot
 from bot.importss import Robot as Bot
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message #, CallbackQuery
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)   
 
@@ -50,7 +50,7 @@ async def filter(client: Bot, message: Message):
         buttons = data['buttons'][0].copy()
 
         buttons.append(
-            [InlineKeyboardButton(text="NEXT ⏩",callback_data=f"nextpage#next_0_{keyword}")]
+            [InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_0_{keyword}")]
         )    
         buttons.append(
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
@@ -59,11 +59,11 @@ async def filter(client: Bot, message: Message):
         await message.reply_text(
                 f"<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
-            )    
+            )   
 
 
-@Client.on_callback_query(filters.regex("^nextpage"))
-async def cb_handler(client: Bot, query: CallbackQuery):
+@Client.on_callback_query()
+async def cb_navg(client: Bot, query: CallbackQuery):
     if query.message.reply_to_message.from_user.id == query.from_user.id:
 
         if query.data.startswith("next"):
