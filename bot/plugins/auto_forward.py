@@ -31,16 +31,3 @@ async def forward(bot, update):
     except FloodWait as e:
         await asyncio.sleep(e.value)
 
-@Client.on_message(filters.chat(-1001860212901) & media_filter)
-async def forward(bot, update):
-    try:      
-        await asyncio.sleep(10)
-        await bot.copy_message(
-            chat_id=-1001667023505, 
-            from_chat_id=-1001860212901, 
-            message_id=update.id, 
-            caption=f"**{update.caption}**".replace("@DXClassic", "➠ @Hollywood_0980\n➠ @DFF_UPDATES"),             
-            parse_mode=enums.ParseMode.MARKDOWN                     
-        )
-    except FloodWait as e:
-        await asyncio.sleep(e.value)
