@@ -38,7 +38,7 @@ async def forward(bot, update):
             chat_id=-1001667023505, 
             from_chat_id=-1001427335527, 
             message_id=update.id, 
-            caption=f"**{update.caption}**".replace("Hollywood_0980", "DXClassic | @Only1DX").replace("@DFF_UPDATES", " ").replace("➠", " "),             
+            caption=update.caption.replace("@DXClassic", " "),             
             parse_mode=enums.ParseMode.MARKDOWN                     
         )
     except FloodWait as e:
