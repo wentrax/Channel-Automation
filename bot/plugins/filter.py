@@ -6,9 +6,8 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)   
 
-DOCUMENT = enums.MessagesFilter.VIDEO 
+MEDIA_FILTER = enums.MessagesFilter.VIDEO 
 BUTTONS = {}
- 
 
 @Client.on_message(filters.chat(-1001807463010) & filters.text)
 async def filter(client: Bot, message: Message):
@@ -17,7 +16,7 @@ async def filter(client: Bot, message: Message):
 
     if len(message.text) > 2:    
         btn = []
-        async for msg in client.USER.search_messages(-1001531149575,query=message.text,filter=DOCUMENT):
+        async for msg in client.USER.search_messages(Config.AUTO_1_FILTER,query=message.text,filter=MEDIA_FILTER):
             file_name = msg.video.file_name
             msg_id = msg.id                     
             link = msg.link
@@ -68,7 +67,7 @@ async def filter(client: Bot, message: Message):
 
     if len(message.text) > 2:    
         btn = []
-        async for msg in client.USER.search_messages(-1001665140291,query=message.text,filter=DOCUMENT):
+        async for msg in client.USER.search_messages(Config.AUTO_2_FILTER,query=message.text,filter=MEDIA_FILTER):
             file_name = msg.video.file_name
             msg_id = msg.id                     
             link = msg.link
