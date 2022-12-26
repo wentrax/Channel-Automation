@@ -8,4 +8,6 @@ class Config(object):
       FILES_CAPTION = "@HQFilms4U"
       AUTO_FILTER_CHANNEL =  -1001743048821   
       MULTIFORWARD_ID = list(x for x in getenv("CHANNEL_ID", "-1001665140291:-1001531149575").replace("\n", " ").split(' '))
-
+# your Auto filters channel
+      AUTO_1_FILTER = -1001531149575
+      AUTO_2_FILTER = -1001665140291
