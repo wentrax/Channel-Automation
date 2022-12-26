@@ -35,3 +35,29 @@ async def editing(bot, message):
 
       except:
           pass
+
+@Client.on_message(filters.chat(-1001531149575) & (media_filter))
+async def editing(bot, message):
+      try:
+         media = message.document or message.video or message.audio
+         caption_text = TEXT
+      except:
+         caption_text = ""
+         pass 
+      if (message.document or message.video or message.audio): 
+          if message.caption:                        
+             file_caption = f"**{message.caption}**"                
+          else:
+             fname = media.file_name
+             filename = fname.replace("_", ".")
+             file_caption = f"`{filename}`"  
+              
+      try:                       await bot.edit_message_caption(
+                 chat_id=message.chat.id, 
+                 message_id=message.id,
+                 caption=file_caption.replace("Hollywood_0980", "DXClassic | @Only1DX"),
+                 parse_mode=enums.ParseMode.MARKDOWN
+             )
+
+      except:
+          pass
