@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)   
 
 MEDIA_FILTER = enums.MessagesFilter.VIDEO 
-BUTTONS = {}
+BUTTONNSS = {}
 
 @Client.on_message(filters.chat([-1001589825618, -1001779657158]) & filters.text)
 async def filter(client: Bot, message: Message):
@@ -28,9 +28,9 @@ async def filter(client: Bot, message: Message):
             return
 
         if len(btn) > 5: 
-            btns = list(split_list(btn, 5)) 
+            btns = list(split_lists(btn, 5)) 
             keyword = f"{message.chat.id}-{message.id}"
-            BUTTONS[keyword] = {
+            BUTTONNSS[keyword] = {
                 "total" : len(btns),
                 "buttons" : btns
             }
@@ -45,7 +45,7 @@ async def filter(client: Bot, message: Message):
             )
             return
 
-        data = BUTTONS[keyword]
+        data = BUTTONNSS[keyword]
         buttons = data['buttons'][0].copy()
 
         buttons.append(
@@ -68,7 +68,7 @@ async def cb_navg(client: Bot, query: CallbackQuery):
         if query.data.startswith("next"):
             await query.answer()
             ident, index, keyword = query.data.split("_")
-            data = BUTTONS[keyword]
+            data = BUTTONNSS[keyword]
 
             if int(index) == int(data["total"]) - 2:
                 buttons = data['buttons'][int(index)+1].copy()
@@ -103,7 +103,7 @@ async def cb_navg(client: Bot, query: CallbackQuery):
         elif query.data.startswith("back"):
             await query.answer()
             ident, index, keyword = query.data.split("_")
-            data = BUTTONS[keyword] 
+            data = BUTTONNSS[keyword] 
 
             if int(index) == 1:
                 buttons = data['buttons'][int(index)-1].copy()
@@ -141,7 +141,7 @@ async def cb_navg(client: Bot, query: CallbackQuery):
     else:
         await query.answer("Thats not for you!!",show_alert=True)
 
-def split_list(l, n):
+def split_lists(l, n):
     for i in range(0, len(l), n):
         yield l[i:i + n]  
 
