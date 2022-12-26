@@ -1,3 +1,4 @@
+from .search import split_list
 import re, pyrogram, logging
 from pyrogram import filters, enums, Client
 from bot.importss import Config, Translation, Robot
