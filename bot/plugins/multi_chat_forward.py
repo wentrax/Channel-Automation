@@ -1,4 +1,3 @@
-"""
 import logging, asyncio
 from pyrogram import filters
 from bot.importss import Robot, Config
@@ -7,7 +6,7 @@ logger.setLevel(logging.ERROR)
 
 media_filter = filters.document | filters.video | filters.audio
 
-@Robot.on_message(filters.chat(-1001793975460) & (media_filter))
+@Robot.on_message(filters.chat(-1001665140291) & (media_filter))
 async def forward(client, message):
     # Forwarding the messages to the channel
    try:
@@ -20,4 +19,3 @@ async def forward(client, message):
             await asyncio.sleep(1)
    except Exception as e:
       logger.exception(e)
-"""
