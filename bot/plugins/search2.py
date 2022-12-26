@@ -61,8 +61,8 @@ async def filter(client: Bot, message: Message):
                 reply_markup=InlineKeyboardMarkup(buttons)
             )    
 
-"""
-@Client.on_callback_query()
+
+@Client.on_callback_query(filters.regex("^next_page"))
 async def cb_handler(client: Bot, query: CallbackQuery):
     if query.message.reply_to_message.from_user.id == query.from_user.id:
 
@@ -147,4 +147,4 @@ def split_list(l, n):
         yield l[i:i + n]  
 
 
-"""
+
