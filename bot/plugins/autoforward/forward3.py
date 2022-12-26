@@ -14,7 +14,7 @@ async def forward(bot, update):
             chat_id=-1001550414526, 
             from_chat_id=-1001578963660, 
             message_id=update.id, 
-            caption=f"**{update.caption}**" + ("\n\n") "➠ @Hollywood_0980\n➠ @DFF_UPDATES",         
+            caption=f"**{update.caption}**" + "\n\n" + "➠ @Hollywood_0980\n➠ @DFF_UPDATES",         
             parse_mode=enums.ParseMode.MARKDOWN                     
         )
     except FloodWait as e:
