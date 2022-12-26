@@ -18,7 +18,7 @@ async def filter(client: Bot, message: Message):
     if len(message.text) > 2:    
         btn = []
         async for msg in client.USER.search_messages(-1001531149575,query=message.text,filter=DOCUMENT):
-            file_name = msg.document.file_name
+            file_name = msg.video.file_name
             msg_id = msg.id                     
             link = msg.link
             btn.append(
