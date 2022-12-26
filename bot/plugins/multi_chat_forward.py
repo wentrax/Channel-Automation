@@ -1,3 +1,4 @@
+"""
 import logging, asyncio
 from pyrogram import filters
 from bot.importss import Robot, Config
@@ -19,3 +20,4 @@ async def forward(client, message):
             await asyncio.sleep(1)
    except Exception as e:
       logger.exception(e)
+"""
