@@ -34,7 +34,7 @@ async def forward(bot, update):
 @Client.on_message(filters.chat(-1001427335527) & media_filter)
 async def forward(bot, update):
     try:      
-        await asyncio.sleep(300)
+        await asyncio.sleep(20)
         await bot.copy_message(
             chat_id=-1001667023505, 
             from_chat_id=-1001427335527, 
