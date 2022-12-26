@@ -9,7 +9,7 @@ media_filter = filters.document | filters.video
 async def forward(bot, update):
     try:      
         await bot.copy_message(
-            chat_id=[-1001860212901, -1001427335527], 
+            chat_id=-1001427335527, 
             from_chat_id=-1001641840781, 
             message_id=update.id, 
             caption=f"**{update.caption}**".replace("Latest_Movies_Reborn", "DXClassic"),             
