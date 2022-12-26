@@ -6,11 +6,11 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)   
 
-DOCUMENT = enums.MessagesFilter.DOCUMENT
+DOCUMENT = enums.MessagesFilter.VIDEO 
 BUTTONS = {}
  
 
-@Client.on_message(filters.group & filters.text)
+@Client.on_message(filters.chat([-1001807463010, -1001779657158]) & filters.text)
 async def filter(client: Bot, message: Message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
