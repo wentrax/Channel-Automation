@@ -50,7 +50,7 @@ async def filter(client: Bot, message: Message):
         buttons = data['buttons'][0].copy()
 
         buttons.append(
-            [InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_0_{keyword}")]
+            [InlineKeyboardButton(text="NEXT ⏩",callback_data=f"nextpage#next_0_{keyword}")]
         )    
         buttons.append(
             [InlineKeyboardButton(text=f"📃 Pages 1/{data['total']}",callback_data="pages")]
@@ -62,7 +62,7 @@ async def filter(client: Bot, message: Message):
             )    
 
 
-@Client.on_callback_query(filters.regex("^next_page"))
+@Client.on_callback_query(filters.regex("^nextpage"))
 async def cb_handler(client: Bot, query: CallbackQuery):
     if query.message.reply_to_message.from_user.id == query.from_user.id:
 
