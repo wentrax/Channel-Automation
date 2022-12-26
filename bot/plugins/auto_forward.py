@@ -1,7 +1,9 @@
-import os, asyncio
+import os, asyncio, logging
 from pyrogram.errors import FloodWait
 from pyrogram import Client, filters, enums
 from bot.importss import Config 
+logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
 
 media_filter = filters.document | filters.video 
 
