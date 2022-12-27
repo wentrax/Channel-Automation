@@ -6,7 +6,6 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
 media_filter = filters.document | filters.video 
-one two three 
 
 @Robot.on_message(filters.chat(-1001860212901) & media_filter)
 async def forward(bot, update):
