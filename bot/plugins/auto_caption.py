@@ -38,7 +38,7 @@ async def editing(bot, message):
 
 
 @Client.on_message(filters.chat(-1001531149575) & (media_filter))
-async def editing(bot, message):
+async def edi_ting(bot, message):
       try:
          media = message.document or message.video or message.audio
          caption_text = "Test"
