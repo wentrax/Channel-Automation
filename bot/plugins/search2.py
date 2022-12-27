@@ -61,8 +61,8 @@ async def filter(client: Bot, message: Message):
             )   
 
 
-@Client.on_callback_query()
-async def cb_navg(client: Bot, query: CallbackQuery):
+@Client.on_callback_query(filters.regex(r"^next"))
+async def next_page(client: Bot, query: CallbackQuery):
     if query.message.reply_to_message.from_user.id == query.from_user.id:
 
         if query.data.startswith("next"):
