@@ -5,8 +5,8 @@ from . import API_HASH, APP_ID, LOGGER, BOT_TOKEN
 from .client import User
 
 class Robot(Client):
-    USER: User = None
-    USER_ID: int = None
+#    USER: User = None
+#    USER_ID: int = None
 
     def __init__(self):
         super().__init__(
@@ -20,7 +20,7 @@ class Robot(Client):
             bot_token=BOT_TOKEN,
             sleep_threshold=10
         )
-        self.LOGGER = LOGGER
+#        self.LOGGER = LOGGER
 
     async def start(self):
         await super().start()
