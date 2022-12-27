@@ -27,7 +27,7 @@ async def search(client: Bot, message: Message):
         if len(btn) > 5: 
             btns = list(split_lists(btn, 5)) 
             keyword = f"{message.chat.id}-{message.id}"
-            BUTTONNSS[keyword] = {
+            BUTTON[keyword] = {
                 "total" : len(btns),
                 "buttons" : btns
             }
@@ -42,7 +42,7 @@ async def search(client: Bot, message: Message):
             )
             return
 
-        data = BUTTONNSS[keyword]
+        data = BUTTON[keyword]
         buttons = data['buttons'][0].copy()
 
         buttons.append(
