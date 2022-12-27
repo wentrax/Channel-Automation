@@ -3,7 +3,9 @@ from pyrogram import filters, enums, Client
 from bot.importss import Config, Translation, Robot
 from bot.importss import Robot as Bot
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from .search import BUTTON 
+# from .search import BUTTON 
+
+BUTTON = {}
 
 MEDIA_FILTER = enums.MessagesFilter.VIDEO 
 
