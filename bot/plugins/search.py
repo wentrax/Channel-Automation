@@ -61,7 +61,7 @@ async def filter(client: Bot, message: Message):
             )    
 
 
-@Client.on_message(filters.chat(-1001779657158) & filters.text)
+@Client.on_message(filters.chat([-1001589825618, -1001779657158]) & filters.text)
 async def autosearch(client: Bot, message: Message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
