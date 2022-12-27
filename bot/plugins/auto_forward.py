@@ -14,7 +14,7 @@ async def forward(bot, update):
             chat_id=-1001846691219, 
             from_chat_id=-1001857977699, 
             message_id=update.id, 
-            caption=f"**{update.caption}**".replace("@Latest_Movies_Reborn", " ").replace ("🔥 Fɪʀꜱᴛ Oɴ Tᴇʟᴇɢʀᴀᴍ 🔥", " ").replace("@BollyWeeBHolly", " ").replace("@JESSEVERSE", " ").replace("@Theprofffesorr", " "),          
+            caption=f"**{update.caption}**".replace("@Latest_Movies_Reborn", " ").replace ("🔥 Fɪʀꜱᴛ Oɴ Tᴇʟᴇɢʀᴀᴍ 🔥", " ").replace("@BollyWeeBHolly", " ").replace("@JESSEVERSE", " ").replace("@Theprofffesorr", " ").replace("🔥 Join Us On Telegram 🔥", " ").replace("@File_Movies_Uploaded", " "),          
             parse_mode=enums.ParseMode.MARKDOWN                     
         )
     except FloodWait as e:
