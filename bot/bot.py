@@ -20,7 +20,7 @@ class Robot(Client):
             bot_token=BOT_TOKEN,
             sleep_threshold=10
         )
-#        self.LOGGER = LOGGER
+        self.LOGGER = LOGGER
 
     async def start(self):
         await super().start()
@@ -29,7 +29,7 @@ class Robot(Client):
         self.LOGGER(__name__).info(
             f"@{bot_details.username}  started! "
         )
-        self.USER, self.USER_ID = await User().start()
+#        self.USER, self.USER_ID = await User().start()
 
     async def stop(self, *args):
         await super().stop()
