@@ -5,8 +5,8 @@ from . import API_HASH, APP_ID, LOGGER, BOT_TOKEN
 from .client import User
 
 class Robot(Client):
-    USER: User = None
-    USER_ID: int = None
+#    USER: User = None
+#    USER_ID: int = None
 
     def __init__(self):
         super().__init__(
@@ -29,7 +29,7 @@ class Robot(Client):
         self.LOGGER(__name__).info(
             f"@{bot_details.username}  started! "
         )
-        self.USER, self.USER_ID = await User().start()
+#        self.USER, self.USER_ID = await User().start()
 
     async def stop(self, *args):
         await super().stop()
