@@ -45,6 +45,7 @@ async def forward_3_auto(bot, update):
             caption=f"**{update.caption}**".replace("Hollywood_0980", "DXClassic | @Only1DX").replace("@DFF_UPDATES", " ").replace("➠", " "),             
             parse_mode=enums.ParseMode.MARKDOWN                     
         )
-"""
+
     except FloodWait as e:
         await asyncio.sleep(e.value)
+"""
