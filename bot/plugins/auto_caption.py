@@ -10,7 +10,7 @@ TEXT = "➠ @Hollywood_0980\n➠ @DFF_UPDATES"
 media_filter = filters.document | filters.video | filters.audio
 
 
-@Client.on_message(filters.chat([-1001743048821, -1001667023505]) & (media_filter))
+@Client.on_message(filters.chat([-1001665140291, -1001743048821, -1001667023505]) & (media_filter))
 async def editing(bot, message):
       try:
          media = message.document or message.video or message.audio
