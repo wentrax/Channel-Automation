@@ -9,14 +9,14 @@ logger.setLevel(logging.ERROR)
 MEDIA_FILTER = enums.MessagesFilter.VIDEO 
 BUTTONS = {}
 
-@Client.on_message(filters.chat(-1001807463010) & filters.text)
+@Client.on_message(filters.chat(-1001589825618) & filters.text)
 async def filter(client: Bot, message: Message):
     if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
 
     if len(message.text) > 2:    
         btn = []
-        async for msg in client.USER.search_messages(Config.AUTO_1_FILTER,query=message.text,filter=MEDIA_FILTER):
+        async for msg in client.USER.search_messages(Config.AUTO_FILTER_CHANNEL,query=message.text,filter=MEDIA_FILTER):
             file_name = msg.video.file_name
             msg_id = msg.id                     
             link = msg.link
