@@ -8,11 +8,6 @@ logger.setLevel(logging.ERROR)
 
 FROM = Config.FILES_FROM_CHANNEL
 TO = Config.FILES_TO_CHANNEL
-
-rpl1c = "Hollywood_0980"
-rpl2c = "LkLMNL_09870"
-
-rplc1d = "DXClassic | @Only1DX"
 document = enums.MessagesFilter.VIDEO
 
 @Client.on_message(filters.private & filters.command(["start_forward"]))
@@ -44,7 +39,7 @@ async def run(bot, message):
                 chat_id=TO,
                 from_chat_id=FROM,
                 parse_mode=enums.ParseMode.MARKDOWN,       
-                caption=f"**{message.caption}**".replace(rpl1c, rplc1d).replace(rpl2c, rplc1d).replace("➠", " ").replace("@DFF_UPDATES", " ").replace("@DFF_UPDATE", " ").replace("✅", " "),
+                caption=message.caption,
                 message_id=message.id
             )
             files_count += 1
